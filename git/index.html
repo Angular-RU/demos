@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="description" content="Version control, branching, pull requests, rebase, merge, revert и командный workflow"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Git</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/interview/_astro/ClientRouter.astro_astro_type_script_index_0_lang.6Spq5I16.js"></script><link rel="stylesheet" href="/interview/_astro/Layout.Bau6QOxO.css"></head><body><main class="page"><article class="content"><aside class="sidebar-navigation" aria-label="Навигация: Git"><nav class="sidebar-navigation__panel"><div class="sidebar-navigation__header"><a class="sidebar-navigation__home" href="/interview/" aria-label="На главную"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.75Z"></path></svg><span class="sidebar-navigation__home-label">Главная</span></a><button class="sidebar-navigation__toggle" type="button" aria-controls="sidebar-navigation-content" aria-expanded="false" data-navigation-toggle><span class="sidebar-navigation__toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="sidebar-navigation__title">Оглавление</span></button></div><div class="sidebar-navigation__rail" aria-hidden="true"><span class="sidebar-navigation__marker" data-heading-marker="version-control-и-командный-workflow"></span><span class="sidebar-navigation__marker" data-heading-marker="git-commands"></span></div><div class="sidebar-navigation__content" id="sidebar-navigation-content"><ul class="sidebar-navigation__list"><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#version-control-и-командный-workflow" data-heading-link="version-control-и-командный-workflow">Version control и командный workflow</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#git-commands" data-heading-link="git-commands">Git commands</a></li></ul></div></nav></aside><script type="module">var e,t=(e,t)=>{let n=e.querySelector(`.sidebar-navigation__panel`),r=e.querySelector(`[data-navigation-toggle]`);if(!n||!r)return;let i=[...e.querySelectorAll(`[data-heading-link]`)],a=[...e.querySelectorAll(`[data-heading-marker]`)],o=i.flatMap(e=>{let t=e.dataset.headingLink,n=t?document.getElementById(t):null;return t&&n?[{slug:t,heading:n}]:[]}),s=0,c=e=>{n.toggleAttribute(`data-open`,e),r.setAttribute(`aria-expanded`,String(e))},l=e=>{for(let t of i)t.dataset.headingLink===e?t.setAttribute(`aria-current`,`location`):t.removeAttribute(`aria-current`);for(let t of a)t.toggleAttribute(`data-active`,t.dataset.headingMarker===e)},u=()=>Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(`--anchor-offset`))||0,d=()=>{let e=o[0]?.slug,t=u(),n=document.documentElement.scrollHeight-window.innerHeight-window.scrollY;if(window.scrollY>0&&n<=1)return o.at(-1)?.slug;for(let{slug:n,heading:r}of o){if(r.getBoundingClientRect().top>t+1)break;e=n}return e},f=()=>{s=0,l(d())},p=()=>{s||=requestAnimationFrame(f)};r.addEventListener(`click`,()=>{c(!n.hasAttribute(`data-open`))},{signal:t}),e.addEventListener(`click`,e=>{let t=e.target;if(!(t instanceof Element))return;let n=t.closest(`[data-heading-link]`);n&&(l(n.dataset.headingLink),c(!1))},{signal:t}),document.addEventListener(`click`,t=>{let n=t.target;n instanceof Node&&!e.contains(n)&&c(!1)},{signal:t}),window.addEventListener(`scroll`,p,{passive:!0,signal:t}),window.addEventListener(`resize`,p,{signal:t}),window.addEventListener(`hashchange`,p,{signal:t}),t.addEventListener(`abort`,()=>cancelAnimationFrame(s),{once:!0}),p()};document.addEventListener(`astro:page-load`,()=>{e?.abort(),e=new AbortController;for(let n of document.querySelectorAll(`.sidebar-navigation`))t(n,e.signal)});</script><h2 id="git">Git</h2>
+<h3 id="version-control-и-командный-workflow">Version control и командный workflow</h3>
+<details>
+<summary>Зачем команде version control workflow?</summary>
+<div class="answer">
+<p>Version control workflow определяет, как создаются branches, pull requests, releases, hotfixes и rollback. Без общей
+договоренности изменения сложнее ревьюить, релизы сложнее собирать, а история становится шумной. Workflow должен
+соответствовать размеру команды, частоте релизов и риску продукта.</p>
+</div>
+</details>
+<details>
+<summary>Чем feature branch workflow отличается от trunk-based development?</summary>
+<div class="answer">
+<p>Feature branch workflow держит изменения в отдельных ветках до merge. Trunk-based development предполагает маленькие
+частые изменения в основной ветке, часто с feature flags и сильными automated checks. Первый подход проще для
+изолированной работы, второй лучше для частых релизов и меньших merge conflicts.</p>
+</div>
+</details>
+<details>
+<summary>Кто должен отвечать за качество version-controlled code?</summary>
+<div class="answer">
+<p>Ответственность разделена: автор отвечает за изменение, reviewer — за проверку, maintainers — за правила репозитория и
+release process. Хорошая команда фиксирует branch protection, required checks, review rules и ownership, чтобы качество
+не зависело только от внимательности одного человека.</p>
+</div>
+</details>
+<details>
+<summary>Где лучше вести issues и почему это важно?</summary>
+<div class="answer">
+<p>Issues должны жить в одном понятном месте: GitHub Issues, Jira, YouTrack, Linear или другой системе. Важно, чтобы pull
+requests, bugs, decisions и releases были связаны между собой. Иначе команда теряет контекст, почему изменение было
+сделано и какие ограничения обсуждались.</p>
+</div>
+</details>
+<details>
+<summary>Для чего нужен Husky?</summary>
+<div class="answer">
+<p>Husky настраивает Git hooks в проекте. Например, <code>pre-commit</code> может запускать lint-staged, а <code>commit-msg</code> - проверять
+формат сообщения.</p>
+<p>Hooks дают быстрый локальный feedback, но не заменяют CI: их можно пропустить или не установить.</p>
+</div>
+</details>
+<details>
+<summary>Какие version control systems вы использовали?</summary>
+<div class="answer">
+<p>Ожидается не только название Git, но и понимание ежедневных операций: branch, commit, merge, rebase, revert, conflict
+resolution, pull request и code review. Если был опыт SVN, Mercurial или monorepo tooling, полезно объяснить, чем
+отличались процессы и какие ограничения это создавало.</p>
+</div>
+</details>
+<h3 id="git-commands">Git commands</h3>
+<details>
+<summary>Чем git revert отличается от git reset?</summary>
+<div class="answer">
+<p><code>git revert</code> создает новый коммит, отменяющий изменения выбранного коммита. Он безопасен для общей ветки, потому что не
+переписывает историю.</p>
+<p><code>git reset</code> перемещает указатель ветки. Варианты <code>--soft</code>, <code>--mixed</code> и <code>--hard</code> по-разному работают с index и рабочими
+файлами. Reset опубликованной ветки требует последующего force push и может сломать работу коллег.</p>
+</div>
+</details>
+<details>
+<summary>Чем merge отличается от rebase?</summary>
+<div class="answer">
+<p><code>merge</code> объединяет истории и обычно создает merge commit. Реальные commit hashes существующей ветки сохраняются.</p>
+<p><code>rebase</code> переносит коммиты на новую базу, создавая для них новые hashes и линейную историю. Rebase удобен для локальной
+feature-ветки, но опубликованную общую историю без договоренности не переписывают.</p>
+</div>
+</details>
+<details>
+<summary>Как переключиться на hotfix с незакоммиченными изменениями?</summary>
+<div class="answer">
+<p>Безопасные варианты:</p>
+<ul>
+<li>сделать небольшой временный коммит в текущей ветке;</li>
+<li>выполнить <code>git stash push -u</code>, переключиться на hotfix, затем вернуть изменения через <code>git stash pop</code>;</li>
+<li>использовать отдельный <code>git worktree</code>, чтобы одновременно работать с двумя ветками.</li>
+</ul>
+<p>Не стоит терять изменения через <code>reset --hard</code> или переносить незавершенный код в hotfix.</p>
+</div>
+</details>
+<details>
+<summary>Что происходит с коммитами при rebase на свежий develop?</summary>
+<div class="answer">
+<p>Git берет коммиты feature-ветки и последовательно применяет их поверх нового <code>develop</code>. Содержимое может сохраниться, но
+commits получают новые parent links и hashes.</p>
+<p>Конфликты разрешают по одному, продолжая <code>git rebase --continue</code>. После rebase уже опубликованной ветки обычно нужен
+<code>git push --force-with-lease</code>, а не обычный force push.</p>
+</div>
+</details></article></main></body></html>

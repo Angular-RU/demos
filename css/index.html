@@ -1,0 +1,1316 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="description" content="CSS core, layout, Flexbox, Grid, responsive design, архитектура стилей, rendering и performance"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CSS</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/interview/_astro/ClientRouter.astro_astro_type_script_index_0_lang.6Spq5I16.js"></script><link rel="stylesheet" href="/interview/_astro/Layout.Bau6QOxO.css"></head><body><main class="page"><article class="content"><aside class="sidebar-navigation" aria-label="Навигация: CSS"><nav class="sidebar-navigation__panel"><div class="sidebar-navigation__header"><a class="sidebar-navigation__home" href="/interview/" aria-label="На главную"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.75Z"></path></svg><span class="sidebar-navigation__home-label">Главная</span></a><button class="sidebar-navigation__toggle" type="button" aria-controls="sidebar-navigation-content" aria-expanded="false" data-navigation-toggle><span class="sidebar-navigation__toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="sidebar-navigation__title">Оглавление</span></button></div><div class="sidebar-navigation__rail" aria-hidden="true"><span class="sidebar-navigation__marker" data-heading-marker="css-core"></span><span class="sidebar-navigation__marker" data-heading-marker="css-layout"></span><span class="sidebar-navigation__marker" data-heading-marker="практика-по-css"></span><span class="sidebar-navigation__marker" data-heading-marker="css-flexbox"></span><span class="sidebar-navigation__marker" data-heading-marker="css-grid"></span><span class="sidebar-navigation__marker" data-heading-marker="css-responsive"></span><span class="sidebar-navigation__marker" data-heading-marker="css-architecture"></span><span class="sidebar-navigation__marker" data-heading-marker="css-rendering-и-performance"></span><span class="sidebar-navigation__marker" data-heading-marker="css-rendering-pipeline"></span><span class="sidebar-navigation__marker" data-heading-marker="modern-css"></span><span class="sidebar-navigation__marker" data-heading-marker="css-layout-и-component-tasks"></span></div><div class="sidebar-navigation__content" id="sidebar-navigation-content"><ul class="sidebar-navigation__list"><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-core" data-heading-link="css-core">CSS Core</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-layout" data-heading-link="css-layout">CSS Layout</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#практика-по-css" data-heading-link="практика-по-css">Практика по CSS</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-flexbox" data-heading-link="css-flexbox">CSS Flexbox</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-grid" data-heading-link="css-grid">CSS Grid</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-responsive" data-heading-link="css-responsive">CSS Responsive</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-architecture" data-heading-link="css-architecture">CSS Architecture</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-rendering-и-performance" data-heading-link="css-rendering-и-performance">CSS Rendering и Performance</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-rendering-pipeline" data-heading-link="css-rendering-pipeline">CSS rendering pipeline</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#modern-css" data-heading-link="modern-css">Modern CSS</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#css-layout-и-component-tasks" data-heading-link="css-layout-и-component-tasks">CSS layout и component tasks</a></li></ul></div></nav></aside><script type="module">var e,t=(e,t)=>{let n=e.querySelector(`.sidebar-navigation__panel`),r=e.querySelector(`[data-navigation-toggle]`);if(!n||!r)return;let i=[...e.querySelectorAll(`[data-heading-link]`)],a=[...e.querySelectorAll(`[data-heading-marker]`)],o=i.flatMap(e=>{let t=e.dataset.headingLink,n=t?document.getElementById(t):null;return t&&n?[{slug:t,heading:n}]:[]}),s=0,c=e=>{n.toggleAttribute(`data-open`,e),r.setAttribute(`aria-expanded`,String(e))},l=e=>{for(let t of i)t.dataset.headingLink===e?t.setAttribute(`aria-current`,`location`):t.removeAttribute(`aria-current`);for(let t of a)t.toggleAttribute(`data-active`,t.dataset.headingMarker===e)},u=()=>Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(`--anchor-offset`))||0,d=()=>{let e=o[0]?.slug,t=u(),n=document.documentElement.scrollHeight-window.innerHeight-window.scrollY;if(window.scrollY>0&&n<=1)return o.at(-1)?.slug;for(let{slug:n,heading:r}of o){if(r.getBoundingClientRect().top>t+1)break;e=n}return e},f=()=>{s=0,l(d())},p=()=>{s||=requestAnimationFrame(f)};r.addEventListener(`click`,()=>{c(!n.hasAttribute(`data-open`))},{signal:t}),e.addEventListener(`click`,e=>{let t=e.target;if(!(t instanceof Element))return;let n=t.closest(`[data-heading-link]`);n&&(l(n.dataset.headingLink),c(!1))},{signal:t}),document.addEventListener(`click`,t=>{let n=t.target;n instanceof Node&&!e.contains(n)&&c(!1)},{signal:t}),window.addEventListener(`scroll`,p,{passive:!0,signal:t}),window.addEventListener(`resize`,p,{signal:t}),window.addEventListener(`hashchange`,p,{signal:t}),t.addEventListener(`abort`,()=>cancelAnimationFrame(s),{once:!0}),p()};document.addEventListener(`astro:page-load`,()=>{e?.abort(),e=new AbortController;for(let n of document.querySelectorAll(`.sidebar-navigation`))t(n,e.signal)});</script><h2 id="css">CSS</h2>
+<h3 id="css-core">CSS Core</h3>
+<details>
+<summary>Что такое CSS и как браузер применяет его к HTML?</summary>
+<div class="answer">
+<p>CSS описывает presentation документа. Браузер разбирает stylesheets в CSSOM, сопоставляет selectors с DOM, разрешает
+cascade и inheritance, вычисляет значения, а затем использует их для layout, paint и compositing.</p>
+</div>
+</details>
+<details>
+<summary>Что такое selector и declaration?</summary>
+<div class="answer">
+<p>Selector выбирает элементы, declaration задает пару property/value внутри rule. Несколько selectors могут совпасть с
+одним элементом, после чего cascade определяет победившее значение каждого property.</p>
+</div>
+</details>
+<details>
+<summary>Что такое cascade?</summary>
+<div class="answer">
+<p>Cascade разрешает конфликт declarations по relevance, origin и importance, cascade layer, specificity, scope proximity и
+порядку. Specificity — только один этап, поэтому «самый тяжелый selector всегда побеждает» — неверное упрощение.</p>
+</div>
+</details>
+<details>
+<summary>Что такое inheritance в CSS?</summary>
+<div class="answer">
+<p>Некоторые properties, например <code>color</code> и <code>font-family</code>, по умолчанию наследуют computed value родителя; размеры и box
+properties обычно нет. Наследование применяется после cascade, когда для элемента нет собственного выигравшего значения.</p>
+</div>
+</details>
+<details>
+<summary>Что такое initial value и что делают <code>inherit</code>, <code>initial</code>, <code>unset</code>, <code>revert</code>?</summary>
+<div class="answer">
+<p>Каждое property имеет initial value. <code>inherit</code> берет значение родителя, <code>initial</code> возвращает specification default,
+<code>unset</code> выбирает inherit или initial по природе property, <code>revert</code> откатывает текущий cascade origin/layer к более
+раннему результату.</p>
+</div>
+</details>
+<details>
+<summary>Что такое CSS box model?</summary>
+<div class="answer">
+<p>Box состоит из content, padding, border и margin. При <code>content-box</code> заданная ширина относится только к content, а при
+<code>border-box</code> включает padding и border. Margin находится снаружи и не входит в размер border box.</p>
+</div>
+</details>
+<details>
+<summary>Чем единицы <code>em</code>, <code>rem</code>, <code>%</code>, <code>vw</code>, <code>vh</code> и <code>px</code> отличаются?</summary>
+<div class="answer">
+<p><code>rem</code> зависит от root font size, <code>em</code> — от font size текущего контекста, <code>%</code> — от property-specific containing value,
+viewport units — от viewport, <code>px</code> — CSS pixel. Выбор определяется тем, относительно чего размер должен изменяться.</p>
+</div>
+</details>
+<details>
+<summary>Что такое CSS custom properties?</summary>
+<div class="answer">
+<p>Custom properties объявляются как <code>--color</code> и читаются через <code>var()</code>. Они участвуют в cascade, наследуются и могут
+меняться runtime. Sass variables вычисляются при сборке и не существуют в browser CSSOM после compilation.</p>
+</div>
+</details>
+<details>
+<summary>Что такое <code>currentColor</code>?</summary>
+<div class="answer">
+<p><code>currentColor</code> означает вычисленное значение property <code>color</code>. Его удобно использовать для borders, shadows и SVG
+иконок, чтобы они автоматически следовали цвету текста и состояниям компонента.</p>
+</div>
+</details>
+<details>
+<summary>Веса в CSS</summary>
+<div class="answer">
+<p>Специфичность селектора записывают как три числа: <code>ID - классы - типы</code>.</p>
+<ul>
+<li>универсальный селектор <code>*</code>: <code>0-0-0</code>;</li>
+<li>селектор типа <code>button</code>: <code>0-0-1</code>;</li>
+<li>class, attribute и pseudo-class: <code>0-1-0</code>;</li>
+<li>ID selector: <code>1-0-0</code>.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">#button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Если все три селектора подходят одному элементу, победит <code>#button</code> со специфичностью <code>1-0-0</code>, затем <code>.button</code> с <code>0-1-0</code>,
+затем <code>button</code> с <code>0-0-1</code>. При одинаковой специфичности выигрывает правило, расположенное позже в cascade.</p>
+<p>Inline style рассматривают отдельно: он сильнее обычной специфичности selector. <code>!important</code> тоже не является частью
+специфичности: он меняет приоритет declaration в cascade, после чего сравниваются origin, layer, specificity и порядок.</p>
+<p><img  src="/interview/_astro/css-specificity.D5Z_gNG8_vsJcX.png" alt="img.png" loading="lazy" decoding="async" width="1024" height="1536"></p>
+</div>
+</details>
+<details>
+<summary>Что такое user agent style?</summary>
+<div class="answer">
+<p>То есть CSS, который браузер сам применяет к HTML-элементам, даже если ты не написал свой CSS.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>Hello&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>Text&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">>Click&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>Даже без CSS у них уже есть внешний вид:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">h1</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">em</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-weight</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">bold</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-block-start</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.67</span><span style="color:#F97583">em</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-block-end</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.67</span><span style="color:#F97583">em</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#85E89D">button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  appearance</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</div>
+</details>
+<details>
+<summary>Что делает box-sizing: border-box?</summary>
+<div class="answer">
+<p>При <code>border-box</code> заданные <code>width</code> и <code>height</code> уже включают padding и border. Это делает размеры элементов предсказуемее.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">*</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#85E89D">*</span><span style="color:#B392F0">::before</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#85E89D">*</span><span style="color:#B392F0">::after</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  box-sizing</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">border-box</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</div>
+</details>
+<details>
+<summary>Как браузер сопоставляет CSS selector с элементами?</summary>
+<div class="answer">
+<p>Браузер строит CSSOM и сопоставляет selectors с DOM-элементами, обычно начиная с правой части selector и проверяя
+ancestors дальше влево. Поэтому слишком общие правые части и глубокие chains могут быть дороже, но в большинстве
+интерфейсов bottleneck чаще в layout, paint и количестве DOM, а не в одном selector. Писать selectors все равно стоит
+простыми и устойчивыми к изменениям разметки.</p>
+</div>
+</details>
+<details>
+<summary>Чем reset CSS отличается от normalize CSS?</summary>
+<div class="answer">
+<p>Reset CSS aggressively сбрасывает browser defaults, чтобы начать с почти пустой базы. Normalize CSS сохраняет полезные
+defaults и выравнивает различия между браузерами точечнее. В современных проектах часто используют небольшой base layer:
+<code>box-sizing</code>, typography, form controls и явно выбранные defaults дизайн-системы.</p>
+<p>На интервью важно услышать trade-off: reset дает больше контроля, но требует явно восстановить полезные defaults, а
+normalize-подход меньше ломает привычное поведение браузера. Выбор должен быть частью design system или base styles, а
+не случайным package в dependencies.</p>
+</div>
+</details>
+<details>
+<summary>Какие ошибки делают CSS неэффективным?</summary>
+<div class="answer">
+<p>Частые ошибки: огромный unused CSS, слишком широкие global rules, тяжелые shadows/filters на больших списках,
+<code>transition: all</code>, layout properties в частых анимациях и глубокая зависимость от DOM-структуры. Эффективность проверяют
+DevTools, Coverage и реальными сценариями, а не только визуальным результатом.</p>
+</div>
+</details>
+<h3 id="css-layout">CSS Layout</h3>
+<details>
+<summary>Что такое normal flow?</summary>
+<div class="answer">
+<p>Normal flow — стандартное размещение элементов без positioning, float и специальных layout-контекстов. Block-элементы
+идут сверху вниз, inline-контент располагается внутри строк. Flex и Grid создают собственные правила раскладки для
+дочерних элементов.</p>
+</div>
+</details>
+<details>
+<summary>Что такое block formatting context?</summary>
+<div class="answer">
+<p>BFC — изолированный контекст раскладки block-элементов. Он удерживает floats и предотвращает схлопывание внешних margin
+с содержимым в ряде случаев. Его создают, например, <code>display: flow-root</code>, flex/grid containers и некоторые значения
+<code>overflow</code>.</p>
+</div>
+</details>
+<details>
+<summary>Что такое inline formatting context?</summary>
+<div class="answer">
+<p>В нем текст и inline boxes формируют строки внутри контейнера. На расположение влияют <code>line-height</code>, baseline,
+<code>vertical-align</code> и доступная ширина. Перенос строки создает новый line box.</p>
+</div>
+</details>
+<details>
+<summary>Что такое margin collapsing?</summary>
+<div class="answer">
+<p>Вертикальные margin соседних block boxes в normal flow могут объединиться в один margin вместо суммы. Обычно остается
+наибольший положительный отступ, а отрицательные значения участвуют по отдельным правилам. Flex и Grid items не
+схлопывают margin.</p>
+</div>
+</details>
+<details>
+<summary>Когда margin схлопывается?</summary>
+<div class="answer">
+<p>Между соседними block-элементами, а также между parent и первым или последним child при отсутствии border, padding,
+inline content и разделяющей высоты. Может схлопываться margin пустого блока. Это относится к block formatting context.</p>
+</div>
+</details>
+<details>
+<summary>Как избежать схлопывания margin?</summary>
+<div class="answer">
+<p>Предпочесть <code>gap</code>, добавить осмысленный padding/border или создать BFC через <code>display: flow-root</code>. Не стоит добавлять
+случайный <code>overflow: hidden</code>, если обрезание содержимого нежелательно. Решение должно соответствовать layout-смыслу.</p>
+</div>
+</details>
+<details>
+<summary>Когда margin не схлопывается?</summary>
+<div class="answer">
+<p>У flex/grid items, absolutely positioned elements, floats и элементов в разных BFC. Border, padding или inline content
+между parent и child также разделяют margin. Горизонтальные margin не схлопываются.</p>
+</div>
+</details>
+<details>
+<summary>Что такое positioning в CSS?</summary>
+<div class="answer">
+<p>Свойство <code>position</code> определяет, участвует ли box в normal flow и относительно чего работают inset-свойства <code>top</code>,
+<code>right</code>, <code>bottom</code>, <code>left</code>. Positioning используют для overlays, sticky headers и локального смещения. Основной layout
+обычно лучше строить Flexbox или Grid.</p>
+</div>
+</details>
+<details>
+<summary>Чем отличаются <code>relative</code>, <code>absolute</code>, <code>fixed</code> и <code>sticky</code>?</summary>
+<div class="answer">
+<p><code>relative</code> сохраняет место в flow и создает containing block для потомков. <code>absolute</code> исключается из flow, <code>fixed</code>
+обычно привязан к viewport, <code>sticky</code> ведет себя как normal flow до заданного scroll threshold. Sticky требует
+подходящего scroll container и inset, например <code>top: 0</code>.</p>
+</div>
+</details>
+<details>
+<summary>Что такое stacking context?</summary>
+<div class="answer">
+<p>Это локальная система наложения элементов. Новый context создают, например, positioned element с <code>z-index</code>, <code>opacity</code>
+меньше 1, <code>transform</code> и <code>isolation: isolate</code>. Дочерний элемент не может выйти своим <code>z-index</code> за пределы context
+родителя.</p>
+</div>
+</details>
+<details>
+<summary>Что такое z-index и почему он иногда не работает?</summary>
+<div class="answer">
+<p><code>z-index</code> задает порядок внутри текущего stacking context, а не глобально на странице. Большое число проиграет элементу
+из context, который целиком расположен выше. Нужно искать родителей, создающих contexts, а не увеличивать значение.</p>
+</div>
+</details>
+<details>
+<summary>Что такое overflow?</summary>
+<div class="answer">
+<p>Overflow описывает поведение содержимого, выходящего за padding box. Он может обрезать содержимое или создать scroll
+container. Это влияет на sticky positioning, доступность скрытого контента и layout.</p>
+</div>
+</details>
+<details>
+<summary>Чем отличаются <code>overflow: hidden</code>, <code>auto</code>, <code>scroll</code> и <code>clip</code>?</summary>
+<div class="answer">
+<p><code>hidden</code> обрезает содержимое, но контейнер остается программно прокручиваемым. <code>auto</code> показывает scrollbars при
+необходимости, <code>scroll</code> резервирует прокрутку всегда, <code>clip</code> обрезает без scroll container. Выбор должен сохранять
+доступность контента с клавиатуры.</p>
+</div>
+</details>
+<details>
+<summary>Что такое scroll-snap?</summary>
+<div class="answer">
+<p>Scroll Snap позволяет контейнеру после прокрутки остановиться у заданных snap positions. Контейнер задает ось и
+строгость, элементы — точки выравнивания. Это CSS-enhancement, а не замена доступной навигации carousel.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.carousel</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  overflow-x</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  scroll-snap-type</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">x</span><span style="color:#79B8FF"> mandatory</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.slide</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  flex</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 100</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  scroll-snap-align</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">start</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</div>
+</details>
+<details>
+<summary>Когда стоит использовать scroll-snap?</summary>
+<div class="answer">
+<p>Для горизонтальных галерей, paged sections и сценариев, где остановка на целом элементе ожидаема пользователем. Нужно
+оставить обычную прокрутку и элементы управления. Для длинного читаемого контента mandatory snapping часто мешает.</p>
+</div>
+</details>
+<details>
+<summary>Какие проблемы бывают у scroll-snap на мобильных устройствах?</summary>
+<div class="answer">
+<p>Слишком строгий snap может бороться с жестом пользователя, затруднять диагональную прокрутку и перескакивать после
+изменения размера контента. Safe areas и browser chrome меняют viewport. Поведение нужно проверять на touch devices и с
+увеличенным шрифтом.</p>
+</div>
+</details>
+<details>
+<summary>Что такое containing block?</summary>
+<div class="answer">
+<p>Containing block — прямоугольник, относительно которого вычисляются position и percentage sizes элемента. Его источник
+зависит от <code>position</code>, formatting context и properties ancestors; для absolute element это не всегда непосредственный
+родитель.</p>
+</div>
+</details>
+<details>
+<summary>Что такое float и почему сейчас его редко используют для layout?</summary>
+<div class="answer">
+<p><code>float</code> изначально нужен для обтекания изображений и вставок текстом. Раньше на нем строили колонки, но это требовало
+clearfix, ломало высоты контейнеров и плохо выражало намерение layout. Для современной раскладки обычно выбирают Flexbox
+или Grid, а <code>float</code> оставляют для настоящего text wrapping.</p>
+</div>
+</details>
+<details>
+<summary>Какие способы clearing существуют и когда они нужны?</summary>
+<div class="answer">
+<p>Clearing нужен, когда контейнер должен учитывать плавающие элементы. Исторически использовали <code>clear: both</code> и clearfix
+через pseudo-element; современный простой вариант — создать BFC через <code>display: flow-root</code>. Лучше сначала проверить,
+нужен ли <code>float</code> вообще, потому что Flexbox и Grid обычно снимают эту проблему.</p>
+</div>
+</details>
+<details>
+<summary>Как решать browser-specific CSS issues?</summary>
+<div class="answer">
+<p>Сначала нужно воспроизвести проблему в конкретном браузере, проверить поддержку свойства, cascade, computed styles и
+минимальный пример. Затем выбирают feature detection через <code>@supports</code>, progressive enhancement, fallback или
+ограниченный workaround. User agent sniffing оставляют как последний вариант для документированного browser bug.</p>
+</div>
+</details>
+<details>
+<summary>Что такое feature-constrained browser?</summary>
+<div class="answer">
+<p>Это браузер или webview, где часть современных возможностей отсутствует или ограничена: старый engine, embedded webview,
+режим экономии, слабое устройство или корпоративная среда. Интерфейс должен иметь базовый рабочий слой и улучшаться при
+наличии возможностей. Это практическая причина использовать progressive enhancement и проверку <code>@supports</code>.</p>
+</div>
+</details>
+<details>
+<summary>Какие плюсы и минусы у CSS preprocessors?</summary>
+<div class="answer">
+<p>Sass/Less дают nesting, mixins, functions, modules и удобства для дизайн-систем. Минусы: дополнительная сборка, риск
+глубокой вложенности, абстракций поверх CSS и расхождения с runtime-возможностями браузера. Многие задачи сегодня
+закрывают native CSS custom properties, nesting, cascade layers и modern selectors.</p>
+</div>
+</details>
+<details>
+<summary>Зачем нужны CSS postprocessors?</summary>
+<div class="answer">
+<p>CSS postprocessors обрабатывают уже написанный CSS: добавляют vendor prefixes, оптимизируют output, раскрывают
+современный синтаксис или проверяют правила. Типичный пример — PostCSS с Autoprefixer. Это снижает ручную работу, но
+должно опираться на реальную browser support policy, а не на настройки на всякий случай.</p>
+</div>
+</details>
+<details>
+<summary>Как подключать нестандартные шрифты?</summary>
+<div class="answer">
+<p>Шрифты подключают через <code>@font-face</code>, задают <code>font-family</code>, <code>src</code>, <code>font-weight</code>, <code>font-style</code> и <code>font-display</code>.
+Используют WOFF2, preload только для критичных начертаний и fallback stack с похожими метриками, чтобы снизить CLS.
+Слишком много начертаний ухудшает LCP и first render.</p>
+<p>Командные правила для fonts должны описывать источник файлов, разрешенные weights, fallback stack, <code>font-display</code>,
+preload strategy и связь с design tokens. Это защищает проект от ситуации, когда каждая feature случайно подключает
+новое тяжелое начертание.</p>
+</div>
+</details>
+<details>
+<summary>Что такое FOUT и FOIT?</summary>
+<div class="answer">
+<p>FOUT означает, что браузер сначала показывает fallback font, а потом заменяет его на custom font. FOIT означает, что
+текст временно невидим, пока custom font не загрузится. Обычно этим управляют через <code>font-display</code>, preload только
+критичных fonts, subset и fallback с близкими метриками.</p>
+</div>
+</details>
+<details>
+<summary>Что такое pseudo-element?</summary>
+<div class="answer">
+<p>Pseudo-element создает стилизуемую часть элемента, которой нет как отдельного DOM-узла: <code>::before</code>, <code>::after</code>,
+<code>::marker</code>, <code>::placeholder</code>, <code>::selection</code>. Его используют для декоративного контента, markers и визуальных деталей.
+Смысловой текст лучше хранить в HTML, чтобы он был доступен assistive technologies и копированию.</p>
+</div>
+</details>
+<details>
+<summary>Что такое pseudo-class?</summary>
+<div class="answer">
+<p>Pseudo-class выбирает элемент по состоянию или отношению: <code>:hover</code>, <code>:focus-visible</code>, <code>:checked</code>, <code>:disabled</code>,
+<code>:first-child</code>, <code>:has()</code>. Она не создает новый box, а уточняет selector. Для accessibility особенно важны
+<code>:focus-visible</code>, disabled states и состояния form controls.</p>
+</div>
+</details>
+<details>
+<summary>Чем <code>nth-child()</code> отличается от <code>nth-of-type()</code>?</summary>
+<div class="answer">
+<p><code>:nth-child()</code> считает элемент среди всех siblings, а <code>:nth-of-type()</code> — только среди siblings того же tag name.
+Например, <code>p:nth-child(2)</code> выберет <code>p</code>, только если он второй child вообще, а <code>p:nth-of-type(2)</code> выберет второй <code>p</code>.
+Разница важна, когда структура содержит смешанные элементы.</p>
+</div>
+</details>
+<details>
+<summary>Чем responsive layout отличается от mobile-first strategy?</summary>
+<div class="answer">
+<p>Responsive layout адаптирует интерфейс к разным размерам и возможностям устройства. Mobile-first — стратегия написания
+CSS, где базовые стили рассчитаны на узкий экран, а более широкие состояния добавляются через <code>min-width</code>. Можно сделать
+responsive layout и без mobile-first, но mobile-first часто помогает приоритизировать content и performance.</p>
+</div>
+</details>
+<details>
+<summary>Что такое fixed, fluid и responsive layout?</summary>
+<div class="answer">
+<p>Fixed layout использует жесткие размеры и почти не реагирует на viewport. Fluid layout растягивается в процентах или
+гибких единицах. Responsive layout меняет структуру, размеры и иногда порядок content через constraints, media queries,
+Flexbox, Grid и container queries.</p>
+</div>
+</details>
+<details>
+<summary>Чем <code>display: block</code>, <code>inline</code>, <code>inline-block</code>, <code>flex</code>, <code>grid</code> отличаются друг от друга?</summary>
+<div class="answer">
+<p><code>block</code> занимает доступную строку, <code>inline</code> участвует в тексте и не принимает обычные width/height, <code>inline-block</code>
+сохраняет inline-размещение с размером box. <code>flex</code> управляет элементами преимущественно по одной оси, <code>grid</code> — по
+строкам и колонкам. Выбор определяется задачей layout, а не внешним видом элемента.</p>
+</div>
+</details>
+<details>
+<summary>Как визуально скрыть элемент, но оставить его доступным для screen reader?</summary>
+<div class="answer">
+<p>Используют visually-hidden class: элемент остается в DOM и accessibility tree, но визуально убран за счет clipping и
+минимального размера. Нельзя использовать <code>display: none</code>, <code>visibility: hidden</code> или <code>aria-hidden="true"</code>, если текст
+должен быть прочитан screen reader. Для focusable skip-link скрытие должно сниматься при focus.</p>
+</div>
+</details>
+<details>
+<summary>Какие media types кроме <code>screen</code> существуют?</summary>
+<div class="answer">
+<p>Чаще всего встречаются <code>screen</code>, <code>print</code> и <code>all</code>. <code>print</code> используют для печатной версии: убрать навигацию, раскрыть URL
+ссылок, настроить page breaks и контраст. Старые типы вроде <code>speech</code> имеют ограниченную практическую поддержку, поэтому
+важнее знать реальные media features.</p>
+</div>
+</details>
+<details>
+<summary>Что такое retina graphics и какие техники использовать?</summary>
+<div class="answer">
+<p>Retina graphics учитывает высокий device pixel ratio, где одному CSS pixel соответствует несколько device pixels. Для
+растровых изображений используют <code>srcset</code> с <code>x</code> или <code>w</code> descriptors, responsive images и подходящее сжатие. Иконки и
+простая графика часто лучше работают как SVG, потому что масштабируются без потери четкости.</p>
+</div>
+</details>
+<h3 id="практика-по-css">Практика по CSS</h3>
+<ul>
+<li><a href="/examples/css/flexbox/index.html">Примеры Flexbox</a></li>
+<li><a href="/examples/css/grid/index.html">Примеры CSS Grid</a></li>
+</ul>
+<h3 id="css-flexbox">CSS Flexbox</h3>
+<p>Практический пример: <a href="/examples/css/flexbox/index.html"><code>examples/css/flexbox</code></a></p>
+<details>
+<summary id="flexbox-what">Что такое Flexbox?</summary>
+<div class="answer">
+<p>Flexbox — одномерная модель раскладки для строки или колонки. Она распределяет свободное пространство, выравнивает
+элементы и управляет их ростом и сжатием. Подходит для toolbar, sidebar/content и элементов компонента.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.layout</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">16</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.sidebar</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  flex</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 280</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.content</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  flex</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#79B8FF"> 1</span><span style="color:#79B8FF"> auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  min-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Практика: <a href="/examples/css/flexbox/example1/index.html"><code>Flexbox: оси и выравнивание</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-tasks">Какие задачи решает Flexbox?</summary>
+<div class="answer">
+<p>Flexbox помогает строить одномерные раскладки: строку, колонку, toolbar, группу кнопок, карточку или пару sidebar и
+content. Он распределяет свободное место, выравнивает элементы, управляет переносом, ростом и сжатием flex items.</p>
+<p>Практика: <a href="/examples/css/flexbox/example1/index.html"><code>Flexbox: оси и выравнивание</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-axes">Что такое main axis и cross axis?</summary>
+<div class="answer">
+<p>Main axis задается <code>flex-direction</code>: горизонтально для <code>row</code> и вертикально для <code>column</code>. Cross axis перпендикулярна
+главной. Поэтому смысл <code>justify-content</code> и <code>align-items</code> зависит от направления контейнера.</p>
+<p>Практика: <a href="/examples/css/flexbox/example2/index.html"><code>Flexbox: column direction</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-direction">Что делает <code>flex-direction</code>?</summary>
+<div class="answer">
+<p><code>flex-direction</code> задает направление main axis: <code>row</code>, <code>row-reverse</code>, <code>column</code> или <code>column-reverse</code>. От него зависит,
+куда раскладываются flex items и по какой оси работает <code>justify-content</code>.</p>
+<p>Практика: <a href="/examples/css/flexbox/example2/index.html"><code>Flexbox: column direction</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-wrap">Что делает <code>flex-wrap</code>?</summary>
+<div class="answer">
+<p><code>flex-wrap</code> определяет, должны ли элементы оставаться в одной строке или могут переноситься на новые flex lines. При
+переносе расстояния между строками можно контролировать через <code>row-gap</code>, а распределение строк — через <code>align-content</code>.</p>
+<p>Практика: <a href="/examples/css/flexbox/example3/index.html"><code>Flexbox: wrap</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-gap">Что делает <code>gap</code> во Flexbox?</summary>
+<div class="answer">
+<p><code>gap</code> задает расстояние между flex items и между flex lines, если элементы переносятся. Он принадлежит контейнеру и не
+добавляет внешний отступ по краям раскладки.</p>
+<p>Практика: <a href="/examples/css/flexbox/example4/index.html"><code>Flexbox: row-gap и column-gap</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-flex-1">Что значит <code>flex: 1</code>?</summary>
+<div class="answer">
+<p>В современном CSS это обычно раскрывается примерно в <code>flex: 1 1 0%</code>. Элемент начинает с нулевого basis, может расти и
+сжиматься, деля доступное пространство с соседями. Для контента часто дополнительно нужен <code>min-width: 0</code>.</p>
+<p>Практика: <a href="/examples/css/flexbox/example7/index.html"><code>Flexbox: flex-grow</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-card-bottom">Как прижать кнопку или блок к низу карточки через Flexbox?</summary>
+<div class="answer">
+<p>Карточку делают flex-контейнером с <code>flex-direction: column</code>, а нужному нижнему блоку задают <code>margin-top: auto</code>. Auto
+margin забирает свободное пространство и отталкивает блок к нижнему краю карточки.</p>
+<p>Практика: <a href="/examples/css/flexbox/example10/index.html"><code>Flexbox: auto margin</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-centering">Как центрировать элемент по горизонтали и вертикали через Flexbox?</summary>
+<div class="answer">
+<p>Контейнеру задают <code>display: flex</code>, <code>justify-content: center</code> и <code>align-items: center</code>. При <code>flex-direction: row</code>
+горизонтальное центрирование идет по main axis, а вертикальное — по cross axis.</p>
+<p>Практика: <a href="/examples/css/flexbox/example5/index.html"><code>Flexbox: центрирование items</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-justify-align">Чем <code>justify-content</code> отличается от <code>align-items</code>?</summary>
+<div class="answer">
+<p><code>justify-content</code> распределяет элементы и свободное пространство вдоль main axis. <code>align-items</code> выравнивает flex items
+вдоль cross axis. Для отдельного элемента cross-axis выравнивание можно изменить через <code>align-self</code>.</p>
+<p>Практика: <a href="/examples/css/flexbox/example1/index.html"><code>Flexbox: justify-content и align-items</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-gap-vs-margin">Почему <code>gap</code> часто удобнее, чем margin между элементами?</summary>
+<div class="answer">
+<p><code>gap</code> описывает внутреннее расстояние между соседними элементами на уровне контейнера. Не нужны отдельные правила для
+первого или последнего элемента, отрицательные margin и компенсация краев. Margin лучше оставлять для внешнего
+расстояния между независимыми блоками.</p>
+<p>Практика: <a href="/examples/css/flexbox/example3/index.html"><code>Flexbox: gap</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-grow-shrink-basis">Что делают <code>flex-grow</code>, <code>flex-shrink</code> и <code>flex-basis</code>?</summary>
+<div class="answer">
+<p><code>flex-basis</code> задает базовый размер до распределения пространства. <code>flex-grow</code> определяет долю положительного свободного
+места, <code>flex-shrink</code> — участие в сжатии при нехватке места. Итоговый размер также зависит от min/max constraints.</p>
+<p>Практика: <a href="/examples/css/flexbox/example8/index.html"><code>Flexbox: flex-grow</code></a> и
+<a href="/examples/css/flexbox/example6/index.html"><code>Flexbox: flex-shrink</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-basis-0-auto">Чем <code>flex-basis: 0</code> отличается от <code>flex-basis: auto</code>?</summary>
+<div class="answer">
+<p><code>flex-basis: 0</code> начинает распределение свободного места от нулевой базы, поэтому элементы с одинаковым <code>flex-grow</code> чаще
+получают равные доли. <code>flex-basis: auto</code> сначала учитывает <code>width</code>, <code>height</code> или размер содержимого, а уже потом
+распределяет оставшееся пространство.</p>
+<p>Практика: <a href="/examples/css/flexbox/example8/index.html"><code>Flexbox: flex-grow</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-min-width-0">Почему во Flexbox часто нужен <code>min-width: 0</code>?</summary>
+<div class="answer">
+<p>Flex items по умолчанию имеют automatic minimum size, часто равный min-content width. Длинный текст или вложенный блок
+может растягивать колонку и ломать layout. <code>min-width: 0</code> разрешает элементу сжиматься внутри flex-контейнера, после
+чего работают wrapping, ellipsis или overflow.</p>
+<p>Практика: <a href="/examples/css/flexbox/example6/index.html"><code>Flexbox: flex-shrink</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-fixed-fluid-columns">Как сделать две колонки, где одна занимает фиксированную ширину, а вторая все остальное место?</summary>
+<div class="answer">
+<p>Контейнеру задают <code>display: flex</code>, фиксированной колонке — <code>flex: 0 0 280px</code>, а гибкой — <code>flex: 1 1 auto</code> и часто
+<code>min-width: 0</code>. Так sidebar сохраняет ширину, а content занимает оставшееся пространство.</p>
+<p>Практика: <a href="/examples/css/flexbox/example7/index.html"><code>Flexbox: flex-grow</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-equal-columns">Как сделать равные колонки через Flexbox?</summary>
+<div class="answer">
+<p>Для равных колонок обычно задают элементам одинаковое сокращение, например <code>flex: 1 1 0</code>. Нулевой basis убирает влияние
+начального размера контента, а одинаковый <code>flex-grow</code> делит свободное место поровну.</p>
+<p>Практика: <a href="/examples/css/flexbox/example7/index.html"><code>Flexbox: flex-grow</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-common-mistakes">Какие типичные ошибки бывают при использовании Flexbox?</summary>
+<div class="answer">
+<p>Частые ошибки: путать main axis и cross axis, ждать от Flexbox полноценной двумерной сетки, забывать про <code>flex-wrap</code>,
+использовать margin вместо <code>gap</code> для внутренних расстояний, не учитывать <code>flex-shrink</code> и не задавать <code>min-width: 0</code> для
+колонок с длинным контентом.</p>
+<p>Практика: <a href="/examples/css/flexbox/index.html"><code>Примеры Flexbox</code></a></p>
+</div>
+</details>
+<h3 id="css-grid">CSS Grid</h3>
+<p>Практический пример: <a href="/examples/css/grid/index.html"><code>examples/css/grid</code></a></p>
+<details>
+<summary id="grid-what">Что такое CSS Grid?</summary>
+<div class="answer">
+<p>Grid — двумерная система раскладки со строками, колонками и областями. Она позволяет определить структуру контейнера, а
+элементам — занимать одну или несколько ячеек. Grid удобен для карточек и page-level layout.</p>
+<p>Практика: <a href="/examples/css/grid/example1/index.html"><code>CSS Grid: явная сетка 3 на 3</code></a> и
+<a href="/examples/css/grid/example11/index.html"><code>CSS Grid: адаптивная сетка товаров</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-template-tracks">Что делают <code>grid-template-columns</code> и <code>grid-template-rows</code>?</summary>
+<div class="answer">
+<p>Они описывают явные tracks сетки и их размеры. Можно использовать px, <code>%</code>, <code>fr</code>, <code>minmax()</code>, <code>repeat()</code> и intrinsic
+keywords. Неявные tracks создаются автоматически для элементов вне заданной сетки.</p>
+<p>Практика: <a href="/examples/css/grid/example1/index.html"><code>CSS Grid: фиксированные tracks</code></a> и
+<a href="/examples/css/grid/example2/index.html"><code>CSS Grid: fr-единицы</code></a></p>
+</div>
+</details>
+<details>
+<summary id="flexbox-vs-grid-when">Когда лучше использовать Flexbox, а когда CSS Grid?</summary>
+<div class="answer">
+<p>Flexbox выбирают для строки, колонки, выравнивания и неизвестного числа элементов. Grid — когда важны согласованные
+колонки, строки или двумерные области. Если приходится имитировать строки вложенными flex-контейнерами, Grid обычно
+проще.</p>
+<p>Практика: <a href="/examples/css/flexbox/example3/index.html"><code>Flexbox: wrap</code></a> и
+<a href="/examples/css/grid/example11/index.html"><code>CSS Grid: адаптивная сетка товаров</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-vs-flexbox">Чем Grid отличается от Flexbox?</summary>
+<div class="answer">
+<p>Grid управляет двумя измерениями одновременно и начинает с структуры контейнера. Flexbox распределяет элементы вдоль
+одной основной оси и лучше адаптируется к содержимому. Их часто комбинируют: Grid для страницы, Flexbox внутри
+компонентов.</p>
+<p>Практика: <a href="/examples/css/grid/example6/index.html"><code>CSS Grid: именованные области</code></a> и
+<a href="/examples/css/flexbox/example3/index.html"><code>Flexbox: wrap</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-when">Когда лучше использовать Grid вместо Flexbox?</summary>
+<div class="answer">
+<p>Grid лучше выбирать для двумерной структуры: согласованных строк, колонок, областей страницы и карточных сеток. Flexbox
+удобнее для одномерного распределения элементов внутри компонента. Если layout одновременно зависит и от строк, и от
+колонок, Grid обычно проще и устойчивее.</p>
+<p>Практика: <a href="/examples/css/grid/example3/index.html"><code>CSS Grid: page layout</code></a> и
+<a href="/examples/css/grid/example6/index.html"><code>CSS Grid: grid-template-areas</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-minmax">Что такое <code>minmax()</code>?</summary>
+<div class="answer">
+<p><code>minmax(min, max)</code> задает диапазон размера grid track. Например, колонка может быть не уже <code>240px</code>, но растягиваться до
+доли свободного пространства. Это основа многих responsive grids без media queries.</p>
+<p>Практика: <a href="/examples/css/grid/example11/index.html"><code>CSS Grid: адаптивная сетка товаров</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-auto-fit-fill">Что такое <code>auto-fit</code> и <code>auto-fill</code>?</summary>
+<div class="answer">
+<p>Оба значения создают столько повторяющихся tracks, сколько помещается. <code>auto-fill</code> сохраняет пустые tracks, а <code>auto-fit</code>
+схлопывает их и растягивает занятые. Разница заметна, когда элементов меньше доступных колонок.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.cards</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-template-columns</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">repeat</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">auto-fit</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">minmax</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">240</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#F97583">fr</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">16</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Практика: <a href="/examples/css/grid/example11/index.html"><code>CSS Grid: auto-fit и minmax</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-stacking">Что такое Grid stacking?</summary>
+<div class="answer">
+<p>Grid stacking — прием, при котором несколько grid items размещают в одной и той же области сетки или в пересекающихся
+grid lines. Элементы накладываются друг на друга, а порядок слоя определяется обычными правилами stacking context:
+порядком в DOM, <code>z-index</code>, <code>position</code>, <code>opacity</code>, <code>transform</code> и другими свойствами.</p>
+<p>Это удобно для overlay: текст поверх изображения, badge на карточке, декоративный слой или controlled overlap без
+<code>position: absolute</code>. Grid при этом продолжает задавать общую геометрию и размер области.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card</span><span style="color:#85E89D"> img</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#B392F0">.card</span><span style="color:#B392F0"> .content</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-column</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> / </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-row</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> / </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Практика: <a href="/examples/css/grid/example9/index.html"><code>CSS Grid: пересекающиеся линии</code></a> и
+<a href="/examples/css/grid/example10/index.html"><code>CSS Grid: текст поверх изображения</code></a></p>
+</div>
+</details>
+<details>
+<summary id="grid-wrapping">Как сделать Grid wrapping?</summary>
+<div class="answer">
+<p>В Grid нет прямого аналога <code>flex-wrap</code>, потому что grid items автоматически переходят в новые строки или колонки по
+правилам auto-placement. Для карточных сеток обычно задают повторяющиеся колонки через <code>repeat()</code>, <code>auto-fit</code> или
+<code>auto-fill</code>, а минимальный и максимальный размер колонки описывают через <code>minmax()</code>.</p>
+<p>Так сетка сама вычисляет, сколько колонок помещается в контейнер, и переносит лишние элементы на следующую строку без
+media queries.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.cards</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-template-columns</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">repeat</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">auto-fit</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">minmax</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">240</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#F97583">fr</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">16</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Практика: <a href="/examples/css/grid/example11/index.html"><code>CSS Grid: auto-fit и minmax</code></a></p>
+</div>
+</details>
+<h3 id="css-responsive">CSS Responsive</h3>
+<details>
+<summary>Чем responsive design отличается от adaptive design?</summary>
+<div class="answer">
+<p>Responsive layout плавно подстраивается под доступное пространство, а adaptive обычно выбирает несколько заранее
+подготовленных layouts для диапазонов устройств. На практике подходы комбинируют, а границы выбирают по content, не по
+моделям телефонов.</p>
+</div>
+</details>
+<details>
+<summary>Что такое mobile-first?</summary>
+<div class="answer">
+<p>Mobile-first начинает с базового layout для узкого экрана и добавляет возможности через <code>min-width</code> queries. Это
+помогает приоритизировать content и progressive enhancement, но не отменяет тестирование desktop, touch, keyboard и
+разных input capabilities.</p>
+</div>
+</details>
+<details>
+<summary>Что такое safe area?</summary>
+<div class="answer">
+<p>Safe area учитывает вырезы, скругления и системные overlays устройства. Значения <code>env(safe-area-inset-*)</code> добавляют
+необходимые padding при подходящем viewport configuration, особенно для fixed controls у краев экрана.</p>
+</div>
+</details>
+<details>
+<summary>Как учитывать разные плотности экранов?</summary>
+<div class="answer">
+<p>Layout строят в CSS pixels, а raster assets предоставляют с подходящим resolution через <code>srcset</code> или image-set. SVG
+масштабируется независимо от DPR. Не следует умножать все CSS-размеры на device pixel ratio вручную.</p>
+</div>
+</details>
+<details>
+<summary>Как responsive images связаны с responsive layout?</summary>
+<div class="answer">
+<p>Layout определяет отображаемую ширину, а <code>sizes</code> сообщает ее браузеру для выбора кандидата из <code>srcset</code>. Если <code>sizes</code> не
+соответствует реальному layout, браузер может загрузить слишком большой или размытый ресурс.</p>
+</div>
+</details>
+<details>
+<summary>Что такое media query?</summary>
+<div class="answer">
+<p><code>@media</code> применяет rules при совпадении характеристик viewport, устройства или предпочтений пользователя: width,
+orientation, hover, pointer, prefers-reduced-motion, prefers-color-scheme и других признаков. Media queries используют
+не только для breakpoints, но и для адаптации input, motion и contrast. Breakpoints выбирают там, где ломается layout, а
+не по названиям устройств.</p>
+</div>
+</details>
+<details>
+<summary>Что такое container query и чем она отличается от media query?</summary>
+<div class="answer">
+<p>Media query смотрит на viewport или device features, container query — на размер или styles ближайшего query container.
+Container queries делают компонент адаптивным к месту использования, независимо от ширины всей страницы.</p>
+</div>
+</details>
+<details>
+<summary>Что такое fluid typography и как работает <code>clamp()</code>?</summary>
+<div class="answer">
+<p>Fluid typography плавно меняет размер между границами. <code>clamp(min, preferred, max)</code> ограничивает вычисленное значение:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.title</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">clamp</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#FFAB70"> +</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583">vw</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Границы сохраняют читаемость на очень узких и широких экранах.</p>
+</div>
+</details>
+<h3 id="css-architecture">CSS Architecture</h3>
+<details>
+<summary>Что такое CSS methodology и зачем она нужна?</summary>
+<div class="answer">
+<p>CSS methodology — это набор правил для организации CSS: например BEM, SMACSS, OOCSS, CSS Modules или utility-first
+подход. Методология помогает договориться, как называть классы, где хранить styles и как ограничивать область влияния.
+Важно не название методологии, а консистентность, понятные границы и documented exceptions.</p>
+</div>
+</details>
+<details>
+<summary>Что такое design tokens?</summary>
+<div class="answer">
+<p>Tokens — именованные design decisions: colors, spacing, typography, radii, motion. Их хранят в нейтральном source of
+truth и преобразуют в CSS custom properties, platform constants и design-tool variables. Семантические tokens вроде
+<code>--color-danger</code> устойчивее прямых названий оттенков.</p>
+</div>
+</details>
+<details>
+<summary>Что такое cascade layers <code>@layer</code>?</summary>
+<div class="answer">
+<p>Cascade layers задают явный порядок групп styles до сравнения specificity. Например, <code>reset</code>, <code>base</code>, <code>components</code> и
+<code>utilities</code> можно упорядочить один раз, уменьшая войны selectors и <code>!important</code>.</p>
+</div>
+</details>
+<details>
+<summary>Что такое Shadow DOM style encapsulation?</summary>
+<div class="answer">
+<p>Shadow DOM создает отдельное tree boundary: обычные document selectors не проникают внутрь, а внутренние styles не
+выходят наружу. Наследуемые properties, CSS custom properties, <code>::part</code> и <code>::slotted</code> формируют контролируемые точки
+настройки.</p>
+</div>
+</details>
+<details>
+<summary>Что такое BEM?</summary>
+<div class="answer">
+<p>BEM делит CSS-имена на block, element и modifier:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.user-card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">.user-card__title</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">.user-card--compact</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Соглашение делает связи явными и снижает конфликты глобальных стилей, но длинные имена и ручная дисциплина могут быть
+избыточны при надежной component style isolation.</p>
+</div>
+</details>
+<details>
+<summary>Зачем команде нужны CSS principles?</summary>
+<div class="answer">
+<p>CSS principles фиксируют подход к именованию, композиции, специфичности, layout, responsive design и переиспользованию.
+Без таких правил CSS быстро превращается в набор случайных overrides. Хороший ответ должен упомянуть локальность стилей,
+короткие selectors, осторожность с <code>!important</code>, общий base layer и понятные исключения.</p>
+</div>
+</details>
+<details>
+<summary>Когда отклонение от CSS methodology допустимо?</summary>
+<div class="answer">
+<p>Отклонение допустимо, если стандартный подход плохо решает конкретную задачу: интеграция с внешним UI kit, legacy-код,
+performance-ограничение или нестандартный layout. Исключение должно быть локальным, объясненным и по возможности
+задокументированным, иначе оно быстро становится новой неявной методологией.</p>
+</div>
+</details>
+<details>
+<summary>Как выбрать CSS framework для проекта?</summary>
+<div class="answer">
+<p>CSS framework выбирают по требованиям продукта: скорость разработки, accessibility компонентов, кастомизация, bundle
+size, качество документации, SSR-совместимость и связь с design system. Важно заранее решить, где команда следует
+framework, а где пишет собственный слой, иначе проект обрастает хаотичными overrides.</p>
+</div>
+</details>
+<details>
+<summary>Какие плюсы и минусы у БЭМ?</summary>
+<div class="answer">
+<p>БЭМ дает предсказуемые глобальные имена и явно показывает block, element и modifier. Цена — длинные class names,
+дисциплина соглашений и возможное дублирование контекста там, где framework уже изолирует component styles.</p>
+</div>
+</details>
+<details>
+<summary>Чем CSS Modules, CSS-in-JS и utility-first CSS отличаются?</summary>
+<div class="answer">
+<p>CSS Modules генерируют локальные class names, CSS-in-JS связывает styles с JavaScript runtime или build step,
+utility-first собирает UI из небольших готовых classes. Выбор влияет на isolation, runtime cost, theming, tooling,
+server rendering и читаемость markup.</p>
+</div>
+</details>
+<details>
+<summary>Какие плюсы и минусы у Tailwind-подхода?</summary>
+<div class="answer">
+<p>Utilities ускоряют композицию, ограничивают произвольные значения и удаляют неиспользуемые rules при сборке. Минусы —
+шумная markup, необходимость соглашений для повторяющихся patterns и риск смешать design decisions со случайными
+utilities без tokens и component boundaries.</p>
+</div>
+</details>
+<details>
+<summary>Как сделать theme и dark theme?</summary>
+<div class="answer">
+<p>Компоненты используют semantic custom properties, а theme переопределяет их на root container. Начальный выбор может
+учитывать <code>prefers-color-scheme</code>, пользовательская настройка должна иметь приоритет и сохраняться. Проверяют contrast,
+media assets и browser controls через <code>color-scheme</code>.</p>
+</div>
+</details>
+<details>
+<summary>Почему глобальные стили могут быть проблемой?</summary>
+<div class="answer">
+<p>Широкие selectors создают неявные зависимости, conflicts и regressions в далеких features. Global layer оставляют для
+reset, tokens, typography и действительно общих primitives; component и feature styles ограничивают понятными
+boundaries.</p>
+</div>
+</details>
+<details>
+<summary>Чем SCSS @import отличается от @use?</summary>
+<div class="answer">
+<p>Legacy <code>@import</code> глобально объединяет файлы, может загружать их повторно и создает конфликты имен.</p>
+<p><code>@use</code> загружает module один раз и предоставляет namespace:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="scss"><code><span class="line"><span style="color:#F97583">@use</span><span style="color:#9ECBFF"> 'tokens'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#FFAB70">tokens</span><span style="color:#E1E4E8">.</span><span style="color:#FFAB70">$primary</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Для нового Sass-кода используют <code>@use</code> и <code>@forward</code>.</p>
+</div>
+</details>
+<details>
+<summary>Какие есть способы изоляции стилей?</summary>
+<div class="answer">
+<p>Основные варианты:</p>
+<ul>
+<li>соглашения именования, например BEM;</li>
+<li>Angular style encapsulation;</li>
+<li>CSS Modules;</li>
+<li>Shadow DOM;</li>
+<li>utility-классы;</li>
+<li>ограничение стилей через feature/component boundaries.</li>
+</ul>
+<p>Изоляция уменьшает конфликты, но global tokens, typography и overlays все равно требуют продуманного общего слоя.</p>
+</div>
+</details>
+<details>
+<summary>Какие плюсы и минусы готового UI Kit?</summary>
+<div class="answer">
+<p>Плюсы: единый дизайн, accessibility primitives, быстрый старт, готовые сложные компоненты и меньше дублирования.</p>
+<p>Минусы: ограниченная кастомизация, лишний bundle, зависимость от release cycle и сложные обновления. Перед выбором
+проверяют accessibility, theming, SSR, forms integration, поддержку Angular-версий и качество API.</p>
+</div>
+</details>
+<h3 id="css-rendering-и-performance">CSS Rendering и Performance</h3>
+<details>
+<summary>Что такое critical CSS?</summary>
+<div class="answer">
+<p>Critical CSS — минимальный набор стилей, нужный для первого видимого экрана. Его можно встроить в HTML или выделить
+отдельно, чтобы браузер быстрее показал initial view. В Angular SSR/prerender сценариях это может улучшить perceived
+performance, но усложняет build pipeline, cache и диагностику визуальных regressions.</p>
+</div>
+</details>
+<details>
+<summary>Что такое reflow/layout?</summary>
+<div class="answer">
+<p>Layout вычисляет геометрию render tree: размеры и координаты элементов. Изменение ширины, шрифта или структуры может
+потребовать пересчета части или всей страницы. Стоимость растет с размером и связанностью layout.</p>
+</div>
+</details>
+<details>
+<summary>Почему GPU не делает любую анимацию бесплатной?</summary>
+<div class="answer">
+<p>Compositor может дешево перемещать готовый layer, но его сначала нужно rasterize и хранить в GPU memory. Большие layers,
+filters, uploads и частые изменения content создают overhead. Производительность подтверждают trace, а не наличием
+<code>transform: translateZ(0)</code>.</p>
+</div>
+</details>
+<details>
+<summary>Что делают <code>contain</code> и <code>content-visibility</code>?</summary>
+<div class="answer">
+<p><code>contain</code> ограничивает влияние layout, paint, size или style элемента на остальную страницу. <code>content-visibility: auto</code>
+позволяет пропускать rendering вне viewport, сохраняя content для поиска и accessibility tree. Для стабильной прокрутки
+часто задают <code>contain-intrinsic-size</code>.</p>
+</div>
+</details>
+<details>
+<summary>Что такое repaint?</summary>
+<div class="answer">
+<p>Paint рисует пиксели для фона, текста, border, shadow и других визуальных свойств. Он может выполняться без нового
+layout, если геометрия не изменилась. Большие painted areas и сложные эффекты увеличивают стоимость.</p>
+</div>
+</details>
+<details>
+<summary>Что такое compositing?</summary>
+<div class="answer">
+<p>Compositing собирает ранее нарисованные слои в итоговый кадр, применяя трансформации и прозрачность. Эту работу часто
+можно передать compositor thread/GPU. Но создание и хранение слоев расходует память.</p>
+</div>
+</details>
+<details>
+<summary>Чем reflow отличается от repaint?</summary>
+<div class="answer">
+<p>Reflow пересчитывает геометрию и обычно приводит к последующему paint. Repaint меняет пиксели без обязательного
+пересчета размеров. Compositing может обновить итоговый кадр без обоих этапов для подходящих свойств.</p>
+</div>
+</details>
+<details>
+<summary>Какие CSS-свойства чаще вызывают layout?</summary>
+<div class="answer">
+<p>Свойства размеров и геометрии: <code>width</code>, <code>height</code>, margin, padding, border, position offsets, font metrics и изменения
+DOM. Точная область пересчета зависит от layout и containment. Проверять нужно в Performance panel.</p>
+</div>
+</details>
+<details>
+<summary>Какие CSS-свойства чаще вызывают paint?</summary>
+<div class="answer">
+<p>Цвета, backgrounds, borders, shadows и часть filters обычно требуют paint, но не layout. Чем больше область и сложнее
+эффект, тем дороже операция. Реальная pipeline зависит от браузера и layer structure.</p>
+</div>
+</details>
+<details>
+<summary>Почему <code>transform</code> и <code>opacity</code> обычно лучше для анимаций?</summary>
+<div class="answer">
+<p>Они часто применяются на этапе compositing без повторного layout и paint содержимого. Это уменьшает работу main thread и
+делает кадры стабильнее. Гарантии нет: сложная сцена и лишние layers тоже могут быть дорогими.</p>
+</div>
+</details>
+<details>
+<summary>Что выполняется на CPU, а что может уйти на GPU?</summary>
+<div class="answer">
+<p>JavaScript, style calculation и layout в основном выполняются CPU/main thread. GPU часто ускоряет rasterization и
+compositing слоев. Он не делает произвольную CSS-анимацию бесплатной и не исправляет long JavaScript tasks.</p>
+</div>
+</details>
+<details>
+<summary>Что такое compositor layer?</summary>
+<div class="answer">
+<p>Это поверхность, которую браузер может независимо перемещать и смешивать при сборке кадра. Layers полезны для
+анимируемых элементов, fixed content и video. Каждый слой требует памяти и может увеличить raster/compositing work.</p>
+</div>
+</details>
+<details>
+<summary>Что такое layer promotion?</summary>
+<div class="answer">
+<p>Браузер решает вынести элемент в отдельный compositor layer из-за transform, animation или других эвристик. Разработчик
+может подсказать намерение через <code>will-change</code>, но итог контролирует engine. Promotion нужно подтверждать Layers panel.</p>
+</div>
+</details>
+<details>
+<summary>Что делает <code>will-change</code>?</summary>
+<div class="answer">
+<p>Он заранее сообщает браузеру, какое свойство скоро изменится, чтобы подготовить оптимизацию. Использовать его следует
+незадолго до анимации и для ограниченного числа элементов. После завершения долгой подготовки hint можно убрать.</p>
+</div>
+</details>
+<details>
+<summary>Почему <code>will-change</code> нельзя ставить на все элементы?</summary>
+<div class="answer">
+<p>Браузер может создать слишком много слоев и потратить GPU memory. Это увеличивает rasterization, compositing и иногда
+ухудшает производительность сильнее исходной проблемы. <code>will-change</code> — точечный hint, а не reset.</p>
+</div>
+</details>
+<details>
+<summary>Почему <code>top/left</code> часто хуже для анимаций, чем <code>transform</code>?</summary>
+<div class="answer">
+<p>Offsets меняют геометрию positioned element и могут запускать layout и paint. Transform обычно перемещает готовый слой
+на этапе compositing. Итог зависит от элемента, поэтому анимацию измеряют.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Плохо для частых анимаций */</span></span>
+<span class="line"><span style="color:#B392F0">.box</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">100</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Обычно лучше */</span></span>
+<span class="line"><span style="color:#B392F0">.box</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  transform</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">translateX</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">100</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</div>
+</details>
+<details>
+<summary>Почему <code>box-shadow</code> и <code>filter</code> могут быть дорогими?</summary>
+<div class="answer">
+<p>Они требуют вычисления пикселей вокруг элемента, размытия и дополнительных offscreen surfaces. Большой blur radius и
+анимация на крупной области особенно дороги. Иногда дешевле использовать подготовленный asset или меньшую область.</p>
+</div>
+</details>
+<details>
+<summary>Что такое layout thrashing?</summary>
+<div class="answer">
+<p>Это повторное чередование DOM writes и layout reads, вынуждающее браузер синхронно пересчитывать геометрию много раз за
+кадр. Проблема часто возникает в циклах. Чтения и записи нужно группировать.</p>
+</div>
+</details>
+<details>
+<summary>Как избежать layout thrashing?</summary>
+<div class="answer">
+<p>Сначала прочитать необходимые размеры, затем пакетно изменить DOM. Для кадра использовать <code>requestAnimationFrame</code>, для
+списков — class changes вместо множества inline writes. Профилировщик покажет forced synchronous layout.</p>
+</div>
+</details>
+<details>
+<summary>Почему чтение <code>offsetWidth</code> после записи стилей может быть проблемой?</summary>
+<div class="answer">
+<p>После write вычисленные размеры становятся устаревшими. Чтение <code>offsetWidth</code> требует актуального значения и заставляет
+браузер немедленно завершить style/layout вместо отложенной пакетной работы. Повторение этого паттерна создает forced
+reflow.</p>
+</div>
+</details>
+<details>
+<summary>Как DevTools Performance помогает искать reflow/repaint?</summary>
+<div class="answer">
+<p>Запись trace показывает scripting, style recalculation, layout, paint и compositing по кадрам. Можно открыть дорогой
+event, увидеть call stack и affected nodes. Paint flashing и Layers дополняют анализ.</p>
+</div>
+</details>
+<details>
+<summary>Что такое FPS?</summary>
+<div class="answer">
+<p>FPS — число отображенных кадров в секунду. Низкий или нестабильный FPS заметен как рывки анимации и scrolling. Важно
+смотреть не только среднее, но и пропущенные кадры.</p>
+</div>
+</details>
+<details>
+<summary>Почему 60 FPS означает бюджет около 16.6ms на кадр?</summary>
+<div class="answer">
+<p>Секунда делится на 60 интервалов: примерно <code>1000 / 60 = 16.6ms</code>. В этот бюджет входят input, JavaScript, style, layout,
+paint и compositing. На дисплеях 120Hz бюджет еще меньше.</p>
+</div>
+</details>
+<details>
+<summary>Как <code>requestAnimationFrame</code> помогает с анимациями?</summary>
+<div class="answer">
+<p>Callback вызывается перед следующим paint и синхронизирует обновление с refresh cycle. Браузер может приостанавливать
+его в фоновой вкладке. Тяжелая работа внутри callback все равно блокирует кадр.</p>
+</div>
+</details>
+<h3 id="css-rendering-pipeline">CSS rendering pipeline</h3>
+<details>
+<summary>Что такое FOUC и как его уменьшить?</summary>
+<div class="answer">
+<p>FOUC, Flash of Unstyled Content, возникает, когда HTML уже отрисован, а нужные CSS или fonts еще не применились.
+Помогают critical CSS, корректное размещение stylesheet, preload важных fonts, стабильные fallback fonts и отказ от
+поздней загрузки базовых стилей через JavaScript. В Angular также важно, чтобы server-rendered HTML и client styles
+давали согласованный first render.</p>
+</div>
+</details>
+<details>
+<summary>Как подключение custom fonts влияет на performance?</summary>
+<div class="answer">
+<p>Custom fonts могут задерживать отображение текста, влиять на LCP и вызывать FOUT или FOIT. Нужно выбирать WOFF2,
+<code>font-display</code>, preload только критичных начертаний, subset и fallback stack с близкими метриками. Чем больше font files
+и weights, тем выше риск медленного first render.</p>
+</div>
+</details>
+<details>
+<summary>Что такое CSSOM и почему CSS может блокировать рендеринг?</summary>
+<div class="answer">
+<p>CSSOM — object model разобранных CSS rules. Браузеру нужен CSSOM, чтобы вычислить стили и построить render tree, поэтому
+внешний stylesheet обычно является render-blocking resource для первого render.</p>
+<p>Большой CSS, медленный CDN или <code>@import</code> могут задержать LCP. Помогают critical CSS, удаление unused CSS, разделение
+styles по routes и аккуратная загрузка fonts.</p>
+</div>
+</details>
+<details>
+<summary>Что такое render tree?</summary>
+<div class="answer">
+<ul>
+<li>DOM представляет структуру HTML.</li>
+<li>CSSOM содержит разобранные CSS-правила.</li>
+<li>Render tree объединяет видимые DOM-узлы с вычисленными стилями.</li>
+</ul>
+<p>Элементы вроде <code>display: none</code> не участвуют в render tree, хотя остаются в DOM.</p>
+</div>
+</details>
+<details>
+<summary>Чем layout, paint и compositing отличаются друг от друга?</summary>
+<div class="answer">
+<p>Layout, или reflow, вычисляет размеры и положение элементов. Paint превращает styled boxes, text, borders и shadows в
+пиксели или paint commands. Compositing собирает слои в итоговый кадр и часто может выполняться без нового layout и
+paint.</p>
+<p>Чередование чтения layout-свойств и записи стилей в цикле может вызвать layout thrashing. Операции лучше группировать и
+измерять через browser Performance panel.</p>
+</div>
+</details>
+<details>
+<summary>Что такое Critical Rendering Path?</summary>
+<div class="answer">
+<p>Это последовательность получения HTML/CSS, построения DOM и CSSOM, создания render tree, layout, paint и compositing до
+появления пикселей. Блокирующие ресурсы и long tasks удлиняют путь. Оптимизация должна улучшать измеряемый LCP и первый
+render, а не только число запросов.</p>
+</div>
+</details>
+<details>
+<summary>Что такое render-blocking resources?</summary>
+<div class="answer">
+<p>Это ресурсы, без обработки которых браузер откладывает первый render. К ним обычно относятся stylesheets и часть
+синхронных scripts. Critical CSS, code splitting и корректные <code>defer</code>/<code>async</code> уменьшают блокировку.</p>
+</div>
+</details>
+<details>
+<summary>Как улучшить scroll performance?</summary>
+<div class="answer">
+<p>Нужно уменьшить работу на main thread во время scroll: использовать passive listeners, не читать и не писать layout в
+каждом событии, виртуализировать большие списки и избегать тяжелых shadows/filters на множестве элементов. Sticky,
+parallax и infinite scroll проверяют на реальных устройствах. В Angular важно не запускать лишние state updates и change
+detection на каждый пиксель прокрутки.</p>
+</div>
+</details>
+<details>
+<summary>Почему не стоит использовать transition: all?</summary>
+<div class="answer">
+<p><code>transition: all</code> анимирует любые изменившиеся свойства, включая неожиданные и дорогие для layout. Это усложняет
+поддержку и может создавать случайные анимации.</p>
+<p>Лучше явно перечислить свойства:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  transition</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    transform </span><span style="color:#79B8FF">150</span><span style="color:#F97583">ms</span><span style="color:#79B8FF"> ease</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    opacity </span><span style="color:#79B8FF">150</span><span style="color:#F97583">ms</span><span style="color:#79B8FF"> ease</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</div>
+</details>
+<h3 id="modern-css">Modern CSS</h3>
+<details>
+<summary>Что такое CSS nesting?</summary>
+<div class="answer">
+<p>Native nesting позволяет вкладывать relative selectors внутрь style rule. Оно уменьшает повторение context, но глубокая
+вложенность повышает specificity и связанность. Синтаксис и результат следует отличать от дополнительных возможностей
+Sass.</p>
+</div>
+</details>
+<details>
+<summary>Что такое <code>:has()</code>?</summary>
+<div class="answer">
+<p><code>:has()</code> выбирает element по совпадению relative selector внутри или рядом, например form group с invalid input. Это
+позволяет стилизовать parent без JavaScript, но слишком широкие selectors на больших деревьях следует применять
+осознанно.</p>
+</div>
+</details>
+<details>
+<summary>Что такое style queries?</summary>
+<div class="answer">
+<p>Style container queries применяют rules по computed style container, прежде всего по custom properties. Это позволяет
+компоненту реагировать на semantic state контекста. Поддержку конкретного синтаксиса нужно проверять для целевых
+браузеров.</p>
+</div>
+</details>
+<details>
+<summary>Что такое logical properties?</summary>
+<div class="answer">
+<p>Logical properties описывают flow-relative стороны: <code>margin-inline-start</code>, <code>padding-block</code>, <code>inset-inline-end</code>. В
+отличие от <code>left</code> и <code>right</code>, они адаптируются к writing mode и направлению LTR/RTL, уменьшая отдельные overrides для
+локализации.</p>
+</div>
+</details>
+<details>
+<summary>Какие frontend-проблемы появляются при RTL?</summary>
+<div class="answer">
+<p>RTL влияет на direction, порядок inline content, иконки направления, отступы, scroll behavior, charts, drag and drop и
+анимации. CSS logical properties (<code>margin-inline-start</code>, <code>inset-inline-end</code>) уменьшают количество отдельных overrides.</p>
+<p>Нельзя просто поменять <code>text-align</code>. Нужно проверить keyboard navigation, focus order, truncation, mixed LTR/RTL text,
+date/number formatting и screenshots основных экранов.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.toolbar</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-inline-start</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-inline-end</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</div>
+</details>
+<details>
+<summary>Чем <code>:is()</code> отличается от <code>:where()</code>?</summary>
+<div class="answer">
+<p>Обе pseudo-classes группируют selectors. Specificity <code>:is()</code> равна самому специфичному аргументу, а <code>:where()</code> всегда
+имеет нулевую specificity. Поэтому <code>:where()</code> удобен для легко переопределяемых defaults.</p>
+</div>
+</details>
+<details>
+<summary>Для чего нужны <code>accent-color</code> и <code>color-scheme</code>?</summary>
+<div class="answer">
+<p><code>accent-color</code> настраивает accent native form controls, сохраняя их поведение. <code>color-scheme</code> сообщает браузеру, какие
+цветовые схемы поддерживает область, чтобы он согласовал controls, scrollbars и системные colors.</p>
+</div>
+</details>
+<details>
+<summary>Как работают <code>prefers-color-scheme</code> и <code>prefers-reduced-motion</code>?</summary>
+<div class="answer">
+<p>Эти media features отражают системные предпочтения пользователя. Первая помогает выбрать начальную theme, вторая —
+уменьшить необязательное движение. Reduced motion означает не «выключить все», а убрать потенциально проблемные эффекты,
+сохранив понятную обратную связь.</p>
+</div>
+</details>
+<details>
+<summary>Для чего нужны <code>aspect-ratio</code> и <code>object-fit</code>?</summary>
+<div class="answer">
+<p><code>aspect-ratio</code> задает предпочтительное соотношение сторон box и помогает резервировать место. <code>object-fit</code> определяет,
+как replaced content вроде image или video вписывается в заданный box: <code>contain</code> сохраняет весь content, <code>cover</code>
+заполняет область с crop.</p>
+</div>
+</details>
+<details>
+<summary>Что делают <code>overscroll-behavior</code> и <code>scrollbar-gutter</code>?</summary>
+<div class="answer">
+<p><code>overscroll-behavior</code> управляет scroll chaining и browser overscroll actions на границах container. <code>scrollbar-gutter</code>
+может заранее резервировать место под scrollbar, предотвращая layout shift. Оба свойства применяют точечно, не ломая
+ожидаемую прокрутку страницы.</p>
+</div>
+</details>
+<details>
+<summary>Когда использовать subgrid?</summary>
+<div class="answer">
+<p><code>subgrid</code> позволяет вложенному grid наследовать tracks родителя по строкам или колонкам. Это полезно для карточек,
+табличных layouts и форм, где внутренние элементы разных карточек должны выровняться по общей сетке.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.card-list</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-template-columns</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">repeat</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#F97583">fr</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-template-rows</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">subgrid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Перед применением нужно проверить поддержку целевых браузеров и fallback. Если выравнивание локальное, обычный grid
+проще и понятнее.</p>
+</div>
+</details>
+<h3 id="css-layout-и-component-tasks">CSS layout и component tasks</h3>
+<details>
+<summary>Практическая задача: сделайте CSS-only star rating display.</summary>
+<div class="answer">
+<p>Если нужен только display, можно использовать custom property и overlay. Для интерактивного rating нужны настоящие
+controls, keyboard support и доступное имя.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.rating</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  --rating</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3.5</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --percent</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">calc</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--rating</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 5</span><span style="color:#F97583"> *</span><span style="color:#79B8FF"> 100</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">inline-block</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.25</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  line-height</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.rating::before</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  content</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'★★★★★'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">linear-gradient</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">90</span><span style="color:#F97583">deg</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">currentColor</span><span style="color:#79B8FF"> var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--percent</span><span style="color:#E1E4E8">), </span><span style="color:#79B8FF">#c8c8c8</span><span style="color:#79B8FF"> var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--percent</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#79B8FF">  background-clip</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">text</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">transparent</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Частая ошибка - сделать красивый виджет, но потерять accessibility. Для ввода рейтинга лучше использовать radio group
+или button group, а не только pseudo-elements.</p>
+</div>
+</details>
+<details>
+<summary>Практическая задача: сверстайте responsive card grid без JavaScript.</summary>
+<div class="answer">
+<p><strong>Что проверяет:</strong> Grid, responsive layout, минимальные размеры, отсутствие layout shift.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.cards</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  grid-template-columns</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">repeat</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">auto-fit</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">minmax</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">min</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">100</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">18</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">), </span><span style="color:#79B8FF">1</span><span style="color:#F97583">fr</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  min-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>На интервью важно объяснить, почему <code>minmax(min(100%, 18rem), 1fr)</code> не переполняет узкий viewport, чем <code>auto-fit</code>
+отличается от <code>auto-fill</code>, и как заранее задать размеры media через <code>aspect-ratio</code>.</p>
+</div>
+</details></article></main></body></html>

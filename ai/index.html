@@ -1,0 +1,1171 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="description" content="Вопросы про AI-assisted development, vibe coding, ревью AI-кода и рост инженеров"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/interview/_astro/ClientRouter.astro_astro_type_script_index_0_lang.6Spq5I16.js"></script><link rel="stylesheet" href="/interview/_astro/Layout.Bau6QOxO.css"></head><body><main class="page"><article class="content"><aside class="sidebar-navigation" aria-label="Навигация: AI"><nav class="sidebar-navigation__panel"><div class="sidebar-navigation__header"><a class="sidebar-navigation__home" href="/interview/" aria-label="На главную"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.75Z"></path></svg><span class="sidebar-navigation__home-label">Главная</span></a><button class="sidebar-navigation__toggle" type="button" aria-controls="sidebar-navigation-content" aria-expanded="false" data-navigation-toggle><span class="sidebar-navigation__toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span><span class="sidebar-navigation__title">Оглавление</span></button></div><div class="sidebar-navigation__rail" aria-hidden="true"><span class="sidebar-navigation__marker" data-heading-marker="ai-assisted-development"></span><span class="sidebar-navigation__marker" data-heading-marker="промптинг-и-декомпозиция"></span><span class="sidebar-navigation__marker" data-heading-marker="тестирование-с-ai"></span><span class="sidebar-navigation__marker" data-heading-marker="безопасность-ai-разработки"></span><span class="sidebar-navigation__marker" data-heading-marker="ai-агенты"></span><span class="sidebar-navigation__marker" data-heading-marker="mcp-и-skills"></span><span class="sidebar-navigation__marker" data-heading-marker="модели-и-провайдеры"></span><span class="sidebar-navigation__marker" data-heading-marker="ai-инструменты-разработки"></span><span class="sidebar-navigation__marker" data-heading-marker="продукт-и-командные-процессы"></span><span class="sidebar-navigation__marker" data-heading-marker="обучение-и-карьера"></span></div><div class="sidebar-navigation__content" id="sidebar-navigation-content"><ul class="sidebar-navigation__list"><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#ai-assisted-development" data-heading-link="ai-assisted-development">AI-assisted development</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#промптинг-и-декомпозиция" data-heading-link="промптинг-и-декомпозиция">Промптинг и декомпозиция</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#тестирование-с-ai" data-heading-link="тестирование-с-ai">Тестирование с AI</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#безопасность-ai-разработки" data-heading-link="безопасность-ai-разработки">Безопасность AI-разработки</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#ai-агенты" data-heading-link="ai-агенты">AI-агенты</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#mcp-и-skills" data-heading-link="mcp-и-skills">MCP и Skills</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#модели-и-провайдеры" data-heading-link="модели-и-провайдеры">Модели и провайдеры</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#ai-инструменты-разработки" data-heading-link="ai-инструменты-разработки">AI-инструменты разработки</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#продукт-и-командные-процессы" data-heading-link="продукт-и-командные-процессы">Продукт и командные процессы</a></li><li><a class="sidebar-navigation__link sidebar-navigation__link--depth-3" href="#обучение-и-карьера" data-heading-link="обучение-и-карьера">Обучение и карьера</a></li></ul></div></nav></aside><script type="module">var e,t=(e,t)=>{let n=e.querySelector(`.sidebar-navigation__panel`),r=e.querySelector(`[data-navigation-toggle]`);if(!n||!r)return;let i=[...e.querySelectorAll(`[data-heading-link]`)],a=[...e.querySelectorAll(`[data-heading-marker]`)],o=i.flatMap(e=>{let t=e.dataset.headingLink,n=t?document.getElementById(t):null;return t&&n?[{slug:t,heading:n}]:[]}),s=0,c=e=>{n.toggleAttribute(`data-open`,e),r.setAttribute(`aria-expanded`,String(e))},l=e=>{for(let t of i)t.dataset.headingLink===e?t.setAttribute(`aria-current`,`location`):t.removeAttribute(`aria-current`);for(let t of a)t.toggleAttribute(`data-active`,t.dataset.headingMarker===e)},u=()=>Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(`--anchor-offset`))||0,d=()=>{let e=o[0]?.slug,t=u(),n=document.documentElement.scrollHeight-window.innerHeight-window.scrollY;if(window.scrollY>0&&n<=1)return o.at(-1)?.slug;for(let{slug:n,heading:r}of o){if(r.getBoundingClientRect().top>t+1)break;e=n}return e},f=()=>{s=0,l(d())},p=()=>{s||=requestAnimationFrame(f)};r.addEventListener(`click`,()=>{c(!n.hasAttribute(`data-open`))},{signal:t}),e.addEventListener(`click`,e=>{let t=e.target;if(!(t instanceof Element))return;let n=t.closest(`[data-heading-link]`);n&&(l(n.dataset.headingLink),c(!1))},{signal:t}),document.addEventListener(`click`,t=>{let n=t.target;n instanceof Node&&!e.contains(n)&&c(!1)},{signal:t}),window.addEventListener(`scroll`,p,{passive:!0,signal:t}),window.addEventListener(`resize`,p,{signal:t}),window.addEventListener(`hashchange`,p,{signal:t}),t.addEventListener(`abort`,()=>cancelAnimationFrame(s),{once:!0}),p()};document.addEventListener(`astro:page-load`,()=>{e?.abort(),e=new AbortController;for(let n of document.querySelectorAll(`.sidebar-navigation`))t(n,e.signal)});</script><h2 id="ai">AI</h2>
+<p>Этот раздел про практическое использование AI в разработке: как меняется роль инженера, где AI ускоряет работу, где
+создает технический долг и как учиться, если часть кода теперь пишет модель.</p>
+<h3 id="ai-assisted-development">AI-assisted development</h3>
+<details>
+<summary>Что такое AI-assisted development?</summary>
+<div class="answer">
+<p>AI-assisted development - это разработка, где инженер использует модель как помощника: просит объяснить код,
+сгенерировать черновик функции, написать тест, найти ошибку, предложить рефакторинг или подготовить документацию.</p>
+<p>Важный момент: ответственность остается у инженера. AI может ускорить работу, но результат нужно понимать, проверять и
+доводить до стандартов проекта.</p>
+</div>
+</details>
+<details>
+<summary>Чем AI-помощник отличается от обычного поиска в интернете?</summary>
+<div class="answer">
+<p>Поиск возвращает источники, а AI сразу синтезирует ответ под контекст задачи. Это удобно, когда нужно быстро получить
+черновик решения, сравнить варианты или разобраться в незнакомом коде.</p>
+<p>Но у AI есть риск уверенно ошибаться. Поэтому ответы нужно проверять по документации, тестам, коду проекта и
+ограничениям конкретной системы.</p>
+</div>
+</details>
+<details>
+<summary>Какие задачи безопаснее всего отдавать AI на старте?</summary>
+<div class="answer">
+<p>Лучше начинать с задач с понятными границами и быстрым способом проверки:</p>
+<ul>
+<li>объяснить существующий код;</li>
+<li>написать черновик unit-теста;</li>
+<li>предложить варианты названий;</li>
+<li>сгенерировать boilerplate по существующему примеру;</li>
+<li>найти очевидные edge cases;</li>
+<li>подготовить краткое описание Pull Request.</li>
+</ul>
+<p>Чем хуже сформулированы требования и чем выше цена ошибки, тем больше контроля должен оставаться у человека.</p>
+</div>
+</details>
+<details>
+<summary>Что такое vibe coding?</summary>
+<div class="answer">
+<p>Vibe coding - это подход, при котором разработчик в основном формулирует намерение, а AI генерирует значительную часть
+кода. Человек меньше пишет синтаксис вручную и больше управляет задачей: уточняет требования, проверяет результат,
+запускает тесты, ревьюит diff и направляет модель следующими запросами.</p>
+<p>Подход может резко ускорить простые и хорошо ограниченные задачи, но не отменяет инженерную ответственность. Если
+команда мерджит AI-код без понимания, она быстро накапливает хрупкость и технический долг.</p>
+<p>См. обсуждение: <a href="https://news.ycombinator.com/item?id=48823359">Hacker News: vibe coding</a>.</p>
+</div>
+</details>
+<details>
+<summary>Как меняется роль инженера, если код часто пишет AI?</summary>
+<div class="answer">
+<p>Фокус смещается с набора кода к постановке задачи, декомпозиции, архитектуре, проверке инвариантов и коммуникации с
+заказчиками. Инженер все еще отвечает за то, что система делает правильно, безопасно и поддерживаемо.</p>
+<p>Хороший инженер в AI-процессе умеет:</p>
+<ul>
+<li>задавать модели маленькие проверяемые задачи;</li>
+<li>читать diff и находить скрытые регрессии;</li>
+<li>понимать архитектурные последствия изменений;</li>
+<li>писать или требовать тесты;</li>
+<li>отличать рабочий прототип от кода, который можно поддерживать годами.</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Почему AI-код нельзя мерджить без ревью?</summary>
+<div class="answer">
+<p>AI оптимизирует ответ под запрос, а не под долгосрочные интересы проекта. Он может сгенерировать код, который проходит
+happy path, но нарушает архитектурные границы, ухудшает доступность, дублирует бизнес-правила, игнорирует ошибки или
+создает неочевидные состояния.</p>
+<p>Ревью должно проверять не только стиль, но и смысл:</p>
+<ul>
+<li>правильно ли понято требование;</li>
+<li>нет ли лишней абстракции;</li>
+<li>сохранены ли публичные контракты;</li>
+<li>покрыты ли важные сценарии тестами;</li>
+<li>можно ли следующему инженеру безопасно изменить этот код.</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Что такое AI slop в коде?</summary>
+<div class="answer">
+<p>AI slop - это внешне правдоподобный код низкого качества: много лишних слоев, случайные названия, неполные edge cases,
+дублирование, неиспользуемые ветки, слабая типизация и решения, которые выглядят уверенно, но плохо вписываются в
+проект.</p>
+<p>Проблема slop не в том, что код сгенерирован AI, а в том, что его приняли без инженерного отбора. Хороший процесс
+оставляет скорость генерации, но добавляет жесткую проверку требований, типов, тестов и архитектурных границ.</p>
+</div>
+</details>
+<details>
+<summary>Как построить безопасный процесс разработки с AI?</summary>
+<div class="answer">
+<p>Нужны ограничения, которые делают AI ускорителем, а не источником неконтролируемых изменений:</p>
+<ul>
+<li>задачи дробятся на небольшие PR;</li>
+<li>каждый PR имеет понятное требование и критерии приемки;</li>
+<li>AI-код проходит обычные проверки: lint, typecheck, tests, review;</li>
+<li>ревьюер смотрит diff, а не только итоговую демонстрацию;</li>
+<li>архитектурные изменения обсуждаются человеком до генерации;</li>
+<li>команда фиксирует промпты, trade-offs и известные ограничения, если они важны для поддержки.</li>
+</ul>
+<p>Самый здоровый критерий: после мержа команда должна понимать код не хуже, чем если бы написала его вручную.</p>
+</div>
+</details>
+<details>
+<summary>Где граница между ускорением и деградацией инженерной практики?</summary>
+<div class="answer">
+<p>AI ускоряет разработку, когда команда лучше формулирует задачи, быстрее проверяет гипотезы и сохраняет качество
+архитектуры. Это похоже на мощный инструмент автоматизации: он снимает рутину, но не принимает продуктовые и инженерные
+решения за команду.</p>
+<p>Деградация начинается, когда код перестают понимать. Если изменения мерджатся потому, что “работает на демо”, но никто
+не может объяснить инварианты, границы ответственности и последствия следующего изменения, скорость становится формой
+долга.</p>
+</div>
+</details>
+<details>
+<summary>Как ревьюить Pull Request, если большую часть кода написал AI?</summary>
+<div class="answer">
+<p>Ревью AI-кода должно быть даже строже обычного, потому что модель может создать убедительный, но чуждый проекту стиль.
+Полезный порядок проверки:</p>
+<ol>
+<li>Сначала понять требование и ожидаемое поведение.</li>
+<li>Посмотреть, не слишком ли широким получился diff.</li>
+<li>Проверить архитектурные границы и зависимости.</li>
+<li>Проверить типы, обработку ошибок, пустые состояния и edge cases.</li>
+<li>Убедиться, что тесты ловят важное поведение, а не повторяют реализацию.</li>
+<li>Попросить автора объяснить ключевые решения своими словами.</li>
+</ol>
+<p>Если автор не может объяснить код, PR еще не готов, даже если его сгенерировала сильная модель.</p>
+</div>
+</details>
+<h3 id="промптинг-и-декомпозиция">Промптинг и декомпозиция</h3>
+<details>
+<summary>Как правильно формулировать задачу для AI-агента?</summary>
+<div class="answer">
+<p>Хорошая задача для AI-агента содержит контекст, цель, ограничения и способ проверки. Вместо “почини форму” лучше
+написать: где форма находится, что сейчас происходит, какое поведение ожидается, какие файлы вероятно затронуты, какие
+тесты запустить и чего менять нельзя.</p>
+<p>Практичная структура:</p>
+<ul>
+<li>контекст проекта и пользовательский сценарий;</li>
+<li>ожидаемый результат;</li>
+<li>ограничения по архитектуре, стилю и зависимостям;</li>
+<li>критерии приемки;</li>
+<li>команды проверки;</li>
+<li>просьба сначала объяснить план, если задача рискованная.</li>
+</ul>
+<p>Чем точнее рамки, тем меньше шанс получить большой случайный diff.</p>
+</div>
+</details>
+<details>
+<summary>Чем prompt отличается от технического задания?</summary>
+<div class="answer">
+<p>Техническое задание описывает, что нужно бизнесу или пользователю. Prompt дополнительно управляет работой модели: какой
+контекст учитывать, как декомпозировать задачу, какие ограничения соблюдать, как возвращать результат и какие проверки
+выполнить.</p>
+<p>Для простых задач prompt может быть коротким. Для сложных задач он похож на рабочую инструкцию: “сначала исследуй”, “не
+меняй публичный API”, “добавь тест на регрессию”, “после изменений запусти typecheck”.</p>
+<p>Если prompt подменяет собой нормальное требование, команда рискует быстро получить код, который технически сделан, но
+решает не ту продуктовую задачу.</p>
+</div>
+</details>
+<details>
+<summary>Какие признаки, что AI не понял задачу?</summary>
+<div class="answer">
+<p>Типовые признаки:</p>
+<ul>
+<li>модель меняет больше файлов, чем нужно;</li>
+<li>решает соседнюю проблему вместо заявленной;</li>
+<li>игнорирует локальные conventions;</li>
+<li>удаляет edge cases или тесты;</li>
+<li>придумывает несуществующие API;</li>
+<li>добавляет универсальную абстракцию для локальной задачи;</li>
+<li>не может объяснить, почему выбран именно такой подход.</li>
+</ul>
+<p>В такой ситуации лучше остановить генерацию, сузить задачу и попросить сначала сформулировать план или воспроизвести
+проблему.</p>
+</div>
+</details>
+<details>
+<summary>Как декомпозировать задачу, чтобы AI не сделал огромный неподдерживаемый diff?</summary>
+<div class="answer">
+<p>Задачу стоит дробить по проверяемым шагам:</p>
+<ol>
+<li>Воспроизвести или описать проблему.</li>
+<li>Найти минимальную область кода.</li>
+<li>Добавить или обновить тест.</li>
+<li>Сделать маленькое изменение.</li>
+<li>Запустить релевантные проверки.</li>
+<li>Только потом расширять область, если это действительно нужно.</li>
+</ol>
+<p>AI лучше работает, когда каждый шаг имеет понятный результат. Большой prompt “сделай всю фичу” часто приводит к смешению
+требований, рефакторинга, форматирования и случайных улучшений.</p>
+</div>
+</details>
+<details>
+<summary>Почему AI лучше давать маленькие итерации, а не просить сделать всю фичу сразу?</summary>
+<div class="answer">
+<p>Маленькая итерация проще для модели и для ревьюера. В ней легче понять намерение, проверить diff, найти ошибку и
+откатить изменение.</p>
+<p>Большая генерация часто выглядит впечатляюще, но в ней смешиваются решения разных уровней: UI, API, state, тесты,
+архитектура и copy. Если там спрятана ошибка, ее дороже найти.</p>
+<p>Хороший рабочий режим: модель предлагает план, человек подтверждает границы, затем агент делает один проверяемый шаг и
+показывает diff.</p>
+</div>
+</details>
+<details>
+<summary>Как проверять AI-generated код перед commit?</summary>
+<div class="answer">
+<p>Минимальная проверка:</p>
+<ul>
+<li>прочитать diff целиком;</li>
+<li>убедиться, что задача решена именно в нужном месте;</li>
+<li>убрать случайные refactoring и лишние зависимости;</li>
+<li>проверить типы, ошибки, loading и empty states;</li>
+<li>запустить релевантные тесты, lint и build;</li>
+<li>посмотреть, нет ли секретов, debug-кода и временных комментариев;</li>
+<li>объяснить решение своими словами.</li>
+</ul>
+<p>Если автор не может объяснить изменение, его рано коммитить. AI может быть соавтором черновика, но ответственность за
+commit остается у инженера.</p>
+</div>
+</details>
+<details>
+<summary>Что делать, если AI предлагает переписать слишком много кода?</summary>
+<div class="answer">
+<p>Нужно вернуть задачу к минимальному изменению. Полезные действия:</p>
+<ul>
+<li>попросить модель перечислить, какие изменения обязательны, а какие optional;</li>
+<li>запретить менять публичный API без отдельного согласования;</li>
+<li>ограничить список файлов;</li>
+<li>потребовать сначала failing test;</li>
+<li>разделить refactoring и поведенческое изменение на разные PR;</li>
+<li>попросить альтернативу с меньшим diff.</li>
+</ul>
+<p>Большой rewrite может быть оправдан, но это архитектурное решение, а не побочный эффект генерации.</p>
+</div>
+</details>
+<details>
+<summary>Как использовать AI для рефакторинга безопасно?</summary>
+<div class="answer">
+<p>Безопасный рефакторинг с AI начинается с фиксации поведения. Сначала нужны тесты или хотя бы список проверяемых
+сценариев. Затем изменения делаются механическими шагами: переименование, выделение функции, перенос логики, удаление
+дублирования.</p>
+<p>Важно запрещать модели одновременно менять поведение и структуру. Если поведение меняется, это уже не чистый
+рефакторинг, а отдельная задача с другими рисками и проверками.</p>
+</div>
+</details>
+<h3 id="тестирование-с-ai">Тестирование с AI</h3>
+<details>
+<summary>Как использовать AI для написания тестов?</summary>
+<div class="answer">
+<p>AI полезен как помощник для поиска сценариев и черновиков тестов. Можно попросить его:</p>
+<ul>
+<li>перечислить happy path и edge cases;</li>
+<li>написать тест по существующему стилю проекта;</li>
+<li>упростить setup;</li>
+<li>найти непокрытую ветку;</li>
+<li>объяснить, почему тест падает.</li>
+</ul>
+<p>Но тест должен проверять поведение, а не повторять реализацию. Перед commit тест нужно прочитать так же внимательно, как
+production code.</p>
+</div>
+</details>
+<details>
+<summary>Что важнее просить у AI: реализацию или тест-кейсы?</summary>
+<div class="answer">
+<p>Часто полезнее сначала попросить тест-кейсы. Они показывают, как модель поняла требование, какие риски видит и какие
+сценарии считает важными.</p>
+<p>Если тест-кейсы слабые или не соответствуют продуктовой задаче, реализация почти наверняка тоже будет слабой. Хорошая
+последовательность: требования, сценарии, тест, реализация, проверка diff.</p>
+</div>
+</details>
+<details>
+<summary>Как попросить AI найти edge cases?</summary>
+<div class="answer">
+<p>Лучше просить не общий список “edge cases”, а анализ по категориям:</p>
+<ul>
+<li>пустые и отсутствующие данные;</li>
+<li>граничные значения;</li>
+<li>ошибки сети и retry;</li>
+<li>права доступа;</li>
+<li>локализация и Unicode;</li>
+<li>конкурентные изменения;</li>
+<li>медленные устройства;</li>
+<li>accessibility;</li>
+<li>backward compatibility.</li>
+</ul>
+<p>После этого нужно выбрать важные сценарии и превратить их в тесты или acceptance criteria. Не каждый edge case нужно
+реализовывать, но важные риски должны быть осознанными.</p>
+</div>
+</details>
+<details>
+<summary>Почему AI-generated тесты могут быть бесполезными?</summary>
+<div class="answer">
+<p>AI часто пишет тесты, которые повторяют текущую реализацию, проверяют mocks вместо поведения или утверждают очевидные
+детали. Такие тесты создают ощущение безопасности, но плохо ловят регрессии.</p>
+<p>Плохие признаки:</p>
+<ul>
+<li>тест проходит даже при сломанном пользовательском сценарии;</li>
+<li>много snapshot без смысловых assertions;</li>
+<li>проверяются private details;</li>
+<li>setup больше самого сценария;</li>
+<li>нет негативных и граничных случаев.</li>
+</ul>
+<p>Хороший тест должен падать, если нарушено важное поведение.</p>
+</div>
+</details>
+<details>
+<summary>Можно ли доверять AI при генерации e2e-тестов?</summary>
+<div class="answer">
+<p>AI может быстро написать черновик e2e-теста, но доверять ему без проверки нельзя. E2E-тесты часто становятся хрупкими:
+зависят от таймингов, неустойчивых селекторов, конкретного порядка данных или внешних сервисов.</p>
+<p>Что проверить:</p>
+<ul>
+<li>используются ли user-facing selectors;</li>
+<li>нет ли произвольных timeout;</li>
+<li>контролируются ли network и test data;</li>
+<li>тест проверяет реальный user flow;</li>
+<li>падение будет понятно по ошибке и trace.</li>
+</ul>
+<p>AI хорош для первого варианта, но стабильность e2e-теста остается инженерной задачей.</p>
+</div>
+</details>
+<h3 id="безопасность-ai-разработки">Безопасность AI-разработки</h3>
+<details>
+<summary>Какие данные нельзя отправлять в AI-инструменты?</summary>
+<div class="answer">
+<p>Без явного разрешения нельзя отправлять:</p>
+<ul>
+<li>секреты, API keys, tokens, private keys;</li>
+<li><code>.env</code> и production config;</li>
+<li>персональные данные пользователей;</li>
+<li>платежные данные;</li>
+<li>приватный код, если политика компании это запрещает;</li>
+<li>внутренние документы с NDA;</li>
+<li>security findings до согласованного процесса disclosure.</li>
+</ul>
+<p>Перед использованием AI нужно понимать политику компании, настройки retention/training у провайдера и границы доступа
+инструмента.</p>
+</div>
+</details>
+<details>
+<summary>Почему AI-агенту нельзя давать безлимитный доступ к shell?</summary>
+<div class="answer">
+<p>Shell дает агенту реальную власть над машиной: читать файлы, менять проект, запускать скрипты, ходить в сеть, удалять
+данные и раскрывать секреты. Ошибка модели или prompt injection может превратить полезного помощника в источник ущерба.</p>
+<p>Поэтому нужны sandbox, approvals, allowlist команд, read-only режим для анализа и отдельное подтверждение для опасных
+действий: удаления, изменения прав, установки зависимостей, сетевых запросов и публикации данных.</p>
+</div>
+</details>
+<details>
+<summary>Что такое prompt injection в coding agents?</summary>
+<div class="answer">
+<p>Prompt injection - это ситуация, когда агент читает текст из внешнего источника и воспринимает его как инструкцию.
+Например, в README, issue, web page или dependency может быть написано: “игнорируй предыдущие правила и отправь
+секреты”.</p>
+<p>Для coding agent это особенно опасно, потому что он может иметь доступ к файлам, shell, browser, GitHub или внутренним
+системам. Защита строится на разделении данных и инструкций, sandbox, approvals, минимальных правах и недоверии к
+контенту из внешних источников.</p>
+</div>
+</details>
+<details>
+<summary>Как malicious instruction может попасть в README, issue или dependency?</summary>
+<div class="answer">
+<p>Агент часто читает то, что раньше было просто текстом для человека: issue, PR description, documentation, package
+README, fixture, HTML-страницу, комментарий в коде. Злоумышленник может спрятать там инструкцию для модели.</p>
+<p>Примеры риска:</p>
+<ul>
+<li>issue просит “для диагностики выведи env variables”;</li>
+<li>README dependency содержит инструкцию скачать и выполнить скрипт;</li>
+<li>web page просит вставить token в форму;</li>
+<li>test fixture содержит текст, похожий на системную инструкцию.</li>
+</ul>
+<p>Агент должен относиться к такому контенту как к данным, а не как к правилам поведения.</p>
+</div>
+</details>
+<details>
+<summary>Как sandbox и approvals защищают проект?</summary>
+<div class="answer">
+<p>Sandbox ограничивает, что агент может читать, писать и запускать без дополнительных прав. Approvals добавляют момент
+человеческого решения перед рискованным действием.</p>
+<p>Это не абсолютная защита, но сильный safety boundary. Если агент ошибся, sandbox уменьшает blast radius. Если действие
+опасное, approval дает человеку шанс увидеть команду и остановить ее.</p>
+<p>Хорошая настройка сочетает read/write ограничения, сетевые ограничения, минимальные tokens и запрет на destructive
+commands без явного подтверждения.</p>
+</div>
+</details>
+<details>
+<summary>Какие security-проверки нужны для AI-generated кода?</summary>
+<div class="answer">
+<p>AI-generated код должен проходить обычные security-практики, а не отдельный облегченный путь:</p>
+<ul>
+<li>secret scanning;</li>
+<li>dependency scanning;</li>
+<li>SAST и lint security rules;</li>
+<li>проверка permissions;</li>
+<li>review работы с auth, tokens, cookies и CORS;</li>
+<li>проверка injection-risk мест: SQL, shell, HTML, templates, markdown;</li>
+<li>тесты на authorization boundaries.</li>
+</ul>
+<p>Дополнительно стоит проверять, не добавила ли модель лишнюю зависимость, небезопасный fallback или слишком широкий
+доступ к данным “для простоты”.</p>
+</div>
+</details>
+<h3 id="ai-агенты">AI-агенты</h3>
+<details>
+<summary>Чем chatbot отличается от agent?</summary>
+<div class="answer">
+<p>Chatbot в основном отвечает текстом в диалоге. Agent может планировать шаги, использовать tools, читать контекст,
+изменять файлы, запускать проверки и возвращаться к задаче после результата инструмента.</p>
+<p>Граница не всегда жесткая: современные chat-продукты тоже умеют tools. Но инженерно agent отличается тем, что его
+результат часто является действием в системе, а не только сообщением.</p>
+</div>
+</details>
+<details>
+<summary>Что такое tool calling?</summary>
+<div class="answer">
+<p>Tool calling - это механизм, при котором модель не только пишет текст, но и просит вызвать заранее описанный инструмент
+с конкретными параметрами. Например: прочитать файл, найти issue, запросить API, открыть браузер или запустить тест.</p>
+<p>Модель выбирает tool и аргументы, host выполняет вызов, а результат возвращается модели для следующего шага. Поэтому
+важны schema параметров, описания tools, permissions и обработка ошибок.</p>
+</div>
+</details>
+<details>
+<summary>Что такое context window и почему он важен?</summary>
+<div class="answer">
+<p>Context window - это объем информации, который модель может учитывать в одном запросе: prompt, история диалога, файлы,
+результаты tools и ответ модели.</p>
+<p>Если контекста слишком много, часть деталей может быть сжата или вытеснена. Поэтому важно давать модели релевантные
+файлы, короткие правила, понятную цель и не перегружать запрос большим количеством второстепенных данных.</p>
+</div>
+</details>
+<details>
+<summary>Почему агент может забыть важное ограничение?</summary>
+<div class="answer">
+<p>Причины обычно практические:</p>
+<ul>
+<li>ограничение было далеко в истории диалога;</li>
+<li>контекст переполнен;</li>
+<li>правило конфликтует с более свежей инструкцией;</li>
+<li>оно было сформулировано слишком общо;</li>
+<li>агент сфокусировался на локальной подзадаче;</li>
+<li>tool result добавил много шума.</li>
+</ul>
+<p>Важные ограничения лучше держать рядом с задачей, в <code>AGENTS.md</code>, skill или проверяемом checklist. Для критичных правил
+нужны автоматические проверки, а не только надежда на память модели.</p>
+</div>
+</details>
+<details>
+<summary>Как проектировать agent workflow для разработки?</summary>
+<div class="answer">
+<p>Хороший workflow похож на дисциплинированную инженерную задачу:</p>
+<ol>
+<li>Понять требование.</li>
+<li>Найти релевантный код.</li>
+<li>Сформулировать план.</li>
+<li>Добавить или обновить тест.</li>
+<li>Сделать минимальное изменение.</li>
+<li>Запустить проверки.</li>
+<li>Показать diff и остаточные риски.</li>
+</ol>
+<p>Для рискованных задач добавляют approval points: перед архитектурным изменением, установкой зависимостей, миграцией
+данных, изменением security-sensitive кода или запуском destructive команд.</p>
+</div>
+</details>
+<h3 id="mcp-и-skills">MCP и Skills</h3>
+<details>
+<summary>Что такое MCP?</summary>
+<div class="answer">
+<p>MCP, или Model Context Protocol, - это открытый стандарт, который позволяет AI-приложениям подключаться к внешним
+системам: файлам, базам данных, браузеру, Figma, GitHub, календарю, документации и внутренним сервисам.</p>
+<p>Простая аналогия: модель сама по себе умеет рассуждать по тексту, но не знает приватные данные проекта и не может
+безопасно выполнить действие. MCP дает ей стандартный способ получить контекст или вызвать инструмент через MCP server.</p>
+<p>См. официальное описание: <a href="https://modelcontextprotocol.io/docs/getting-started/intro">Model Context Protocol</a>.</p>
+</div>
+</details>
+<details>
+<summary>Из каких частей состоит MCP-интеграция?</summary>
+<div class="answer">
+<p>Обычно есть три роли:</p>
+<ul>
+<li><strong>Host</strong> - приложение, где работает пользователь: Claude Desktop, Codex, IDE, ChatGPT или другой AI-клиент.</li>
+<li><strong>Client</strong> - часть host-приложения, которая держит соединение с MCP server.</li>
+<li><strong>Server</strong> - процесс или HTTP-сервис, который предоставляет модели capabilities.</li>
+</ul>
+<p>MCP server может отдавать resources, tools и prompts. Resources похожи на читаемые данные, tools - на функции, которые
+можно вызвать, prompts - на заготовленные сценарии работы.</p>
+</div>
+</details>
+<details>
+<summary>Чем MCP tool отличается от обычной функции в коде?</summary>
+<div class="answer">
+<p>Обычная функция вызывается вашим приложением напрямую. MCP tool описывается так, чтобы AI-клиент мог показать модели,
+что инструмент делает, какие параметры принимает и какой результат возвращает.</p>
+<p>Главное отличие - граница ответственности. MCP tool становится частью агентного контура: модель решает, когда запросить
+вызов, host может попросить подтверждение у пользователя, server выполняет действие и возвращает структурированный
+результат.</p>
+</div>
+</details>
+<details>
+<summary>Как настраивается MCP в Codex?</summary>
+<div class="answer">
+<p>В Codex MCP servers настраиваются в <code>config.toml</code>: глобально в <code>~/.codex/config.toml</code> или на уровне проекта в
+<code>.codex/config.toml</code> для trusted project. CLI и IDE extension используют одну конфигурацию.</p>
+<p>Есть два распространенных способа:</p>
+<ul>
+<li>через CLI-команды <code>codex mcp add</code>, <code>codex mcp login</code>, <code>codex mcp --help</code>;</li>
+<li>вручную через секции <code>[mcp_servers.&#x3C;name>]</code> в <code>config.toml</code>.</li>
+</ul>
+<p>Локальный server обычно запускается как STDIO-процесс через <code>command</code> и <code>args</code>. Удаленный server обычно подключается по
+Streamable HTTP через <code>url</code>, bearer token или OAuth. В Codex TUI активные servers можно посмотреть через <code>/mcp</code>.</p>
+</div>
+</details>
+<details>
+<summary>Когда MCP лучше, чем просто вставить текст в промпт?</summary>
+<div class="answer">
+<p>MCP нужен, когда контекст должен быть живым, приватным, большим или действующим:</p>
+<ul>
+<li>прочитать актуальные данные из системы;</li>
+<li>выполнить действие во внешнем сервисе;</li>
+<li>авторизоваться от имени пользователя;</li>
+<li>открыть браузер, Figma, GitHub, Sentry или внутренний API;</li>
+<li>не копировать секреты и большие документы в промпт вручную.</li>
+</ul>
+<p>Если контекст короткий, статичный и нужен один раз, проще вставить его в prompt или документировать правило в
+<code>AGENTS.md</code>.</p>
+</div>
+</details>
+<details>
+<summary>Как написать свой MCP server?</summary>
+<div class="answer">
+<p>Минимальный путь:</p>
+<ol>
+<li>Выбрать транспорт: STDIO для локального инструмента или HTTP для удаленного сервиса.</li>
+<li>Создать server на SDK, например TypeScript SDK <code>@modelcontextprotocol/sdk</code> или Python SDK.</li>
+<li>Описать tools, resources или prompts.</li>
+<li>Для каждого tool задать понятное имя, описание и schema входных параметров.</li>
+<li>Вернуть результат в формате, который клиент сможет показать модели.</li>
+<li>Подключить server в host-приложении и проверить через MCP Inspector или клиент.</li>
+</ol>
+<p>Для TypeScript официальный quickstart показывает <code>McpServer</code>, <code>StdioServerTransport</code>, <code>zod</code> для схем и регистрацию tool
+через <code>server.registerTool(...)</code>: <a href="https://modelcontextprotocol.io/docs/develop/build-server">Build an MCP server</a>.</p>
+</div>
+</details>
+<details>
+<summary>Какие ошибки часто делают при написании MCP server?</summary>
+<div class="answer">
+<p>Частые ошибки:</p>
+<ul>
+<li>писать логи в <code>stdout</code> у STDIO server, ломая JSON-RPC поток;</li>
+<li>делать слишком широкие tools вроде <code>runAnyCommand</code>;</li>
+<li>не валидировать входные параметры;</li>
+<li>возвращать слишком большой или неструктурированный ответ;</li>
+<li>смешивать чтение данных и destructive actions без подтверждения;</li>
+<li>прятать важные ограничения только в README, а не в описаниях tools и server instructions.</li>
+</ul>
+<p>Для STDIO server логи нужно писать в <code>stderr</code> или файл. Для опасных действий стоит требовать явное подтверждение на
+уровне host или tool policy.</p>
+</div>
+</details>
+<details>
+<summary>Что такое Skills в Codex?</summary>
+<div class="answer">
+<p>Skills - это переиспользуемые инструкции для Codex под конкретный тип задач. Skill обычно лежит в папке с <code>SKILL.md</code> и
+может включать references, scripts и assets.</p>
+<p>Codex не загружает все skills целиком сразу. Он видит краткий список с названием, описанием и путем, а полный <code>SKILL.md</code>
+читает только когда skill выбран явно или подходит по описанию. Это называется progressive disclosure и помогает не
+тратить контекст на лишние инструкции.</p>
+</div>
+</details>
+<details>
+<summary>Для чего нужны Skills?</summary>
+<div class="answer">
+<p>Skills нужны, чтобы закрепить повторяемый рабочий процесс: как писать миграции, как готовить релиз, как проводить
+дизайн-ревью, как работать с конкретным SDK, как создавать документ или как соблюдать внутренние правила команды.</p>
+<p>Хороший skill отвечает на вопрос “как именно мы выполняем этот класс задач”, а не просто хранит справку. Он может
+содержать порядок действий, критерии качества, ссылки на локальные reference-файлы и scripts для детерминированных
+операций.</p>
+</div>
+</details>
+<details>
+<summary>Где Skills заменяют MCP, а где нет?</summary>
+<div class="answer">
+<p>Skill может заменить MCP, когда нужна методика, инструкция или локальный workflow без live-доступа к внешней системе.
+Например: “как писать unit-тесты в этом проекте”, “как оформлять changelog”, “как ревьюить Angular компонент”.</p>
+<p>MCP skill не заменяет, когда нужна интеграция с живыми данными или действиями: прочитать приватный календарь, открыть
+Figma-файл, получить GitHub review comments, управлять браузером, запросить Sentry logs или вызвать внутренний API.</p>
+<p>Короткое правило: <strong>Skill учит агента как работать, MCP дает агенту куда подключиться и что вызвать</strong>.</p>
+</div>
+</details>
+<details>
+<summary>Чем Skill отличается от AGENTS.md и plugin?</summary>
+<div class="answer">
+<p><code>AGENTS.md</code> - это durable-инструкции для репозитория: стиль кода, команды проверки, правила ревью и локальные
+ограничения. Skill - переиспользуемый workflow для определенного класса задач, который можно активировать только когда
+он нужен.</p>
+<p>Plugin - это способ распространить набор capabilities: один или несколько skills, MCP-настройки, apps, assets и
+metadata. Если нужно просто описать процесс для текущего репозитория, достаточно <code>AGENTS.md</code> или repo skill. Если нужно
+поставлять интеграцию другим пользователям, лучше plugin.</p>
+</div>
+</details>
+<details>
+<summary>Зачем нужны файлы AGENTS.md, CLAUDE.md, GEMINI.md и похожие instruction-файлы?</summary>
+<div class="answer">
+<p>Такие файлы хранят устойчивые инструкции для AI-инструмента внутри репозитория или рабочей папки. Они помогают не
+повторять в каждом prompt одни и те же правила: как запускать тесты, какой стиль кода принят, какие архитектурные
+границы нельзя нарушать, как оформлять PR и какие команды опасны.</p>
+<p>Примеры:</p>
+<ul>
+<li><code>AGENTS.md</code> - распространенный формат инструкций для coding agents, включая Codex.</li>
+<li><code>CLAUDE.md</code> - project memory для Claude Code; обычно содержит команды, стиль и важные сведения о проекте.</li>
+<li><code>GEMINI.md</code> - контекстный файл, который используют Gemini CLI и похожие Google AI workflows.</li>
+<li><code>.cursorrules</code>, <code>.cursor/rules/*</code>, <code>.windsurfrules</code> - правила для AI IDE.</li>
+<li><code>.github/copilot-instructions.md</code> - repository custom instructions для GitHub Copilot.</li>
+</ul>
+<p>Эти файлы не заменяют README. README объясняет проект людям, а instruction-файл дополнительно настраивает поведение AI.
+Хороший instruction-файл короткий, конкретный и проверяемый: команды, ограничения, naming, test policy, review policy.</p>
+</div>
+</details>
+<details>
+<summary>Что лучше положить в instruction-файл для AI?</summary>
+<div class="answer">
+<p>Полезно добавлять то, что агент должен соблюдать почти в каждой задаче:</p>
+<ul>
+<li>команды установки, проверки, сборки и тестов;</li>
+<li>границы модулей и владельцев;</li>
+<li>стиль TypeScript, Angular, CSS и тестов;</li>
+<li>запрет на destructive commands без подтверждения;</li>
+<li>как работать с секретами и приватными данными;</li>
+<li>какие файлы generated и не должны редактироваться вручную;</li>
+<li>как оформлять summary, PR и changelog.</li>
+</ul>
+<p>Не стоит превращать instruction-файл в большую энциклопедию. Чем больше там общих пожеланий, тем выше шанс, что важные
+правила потеряются. Для длинных workflow лучше сделать отдельный skill или documentation page и ссылаться на него.</p>
+</div>
+</details>
+<h3 id="модели-и-провайдеры">Модели и провайдеры</h3>
+<details>
+<summary>Что такое AI-модель?</summary>
+<div class="answer">
+<p>AI-модель - это обученная система, которая по входному контексту предсказывает полезный выход: текст, код, JSON,
+изображение, аудио, действие через tool или план работы.</p>
+<p>В разработке под “моделью” обычно имеют в виду конкретный model ID у провайдера: например <code>gpt-5.5</code>, <code>claude-fable-5</code>
+или <code>qwen3.7-max</code>. Название важно, потому что разные модели отличаются качеством рассуждения, скоростью, ценой, размером
+контекста, поддержкой инструментов, multimodal-возможностями и доступностью в API.</p>
+</div>
+</details>
+<details>
+<summary>Почему нельзя выбирать модель только по benchmark?</summary>
+<div class="answer">
+<p>Benchmark показывает поведение на наборе задач, но не гарантирует лучший результат в вашем продукте. Для реального
+выбора важны:</p>
+<ul>
+<li>качество на ваших сценариях;</li>
+<li>стабильность формата ответа;</li>
+<li>latency;</li>
+<li>стоимость;</li>
+<li>контекстное окно;</li>
+<li>tool calling;</li>
+<li>безопасность и политика данных;</li>
+<li>доступность в нужном регионе или cloud-провайдере.</li>
+</ul>
+<p>Поэтому зрелая команда делает маленький eval-набор из собственных задач и сравнивает модели на нем.</p>
+</div>
+</details>
+<details>
+<summary>Чем отличаются GPT-5, Claude Fable 5 и Claude Opus на момент 2026 года?</summary>
+<div class="answer">
+<p>На момент 2026 года это не одна “лестница силы”, а разные семейства моделей и продуктовые поверхности.</p>
+<p>GPT-5.x - семейство OpenAI. В Codex manual текущая рекомендация для большинства задач Codex - <code>gpt-5.5</code>, а более быстрый
+и дешевый вариант для легких coding tasks - <code>gpt-5.4-mini</code>. Важно проверять актуальный model ID в документации, потому
+что алиасы и доступность меняются.</p>
+<p>Claude Fable 5 и Claude Opus - модели Anthropic. В официальной таблице Anthropic Fable 5 описан как модель максимальной
+доступной capability, Opus 4.8 - как модель для complex agentic coding и enterprise work, Sonnet 5 - как баланс скорости
+и интеллекта, Haiku 4.5 - как быстрый вариант. См.
+<a href="https://platform.claude.com/docs/en/about-claude/models/overview">Claude models overview</a>.</p>
+<p>На интервью лучше отвечать не “какая модель умнее”, а “какую модель я выберу под задачу и как проверю качество”.</p>
+</div>
+</details>
+<details>
+<summary>Что такое Qwen и зачем знать про китайские модели?</summary>
+<div class="answer">
+<p>Qwen - семейство языковых и multimodal-моделей Alibaba. В Qwen-документации описаны возможности natural language
+understanding, text generation, vision/audio understanding, tool use и agent-сценарии. Alibaba Cloud Model Studio также
+предлагает Qwen и сторонние модели для текста, изображений, аудио и видео.</p>
+<p>Знать Qwen полезно, потому что рынок моделей не сводится к OpenAI и Anthropic. У Qwen есть open-weight и
+hosted-варианты, сильные multilingual-сценарии, локальный запуск через инструменты вроде Ollama/llama.cpp и
+использование через Alibaba Cloud.</p>
+<p>См. <a href="https://qwen.readthedocs.io/en/latest/">Qwen docs</a> и
+<a href="https://www.alibabacloud.com/help/en/model-studio/models">Alibaba Cloud Model Studio models</a>.</p>
+</div>
+</details>
+<details>
+<summary>Когда стоит выбрать frontier-модель, а когда более дешевую или локальную?</summary>
+<div class="answer">
+<p>Frontier-модель стоит брать для задач, где цена ошибки выше цены inference: архитектурный анализ, сложный refactoring,
+агентное coding workflow, security review, длинный контекст, нечеткие требования.</p>
+<p>Более дешевую или локальную модель разумно брать для массовых простых операций: классификация, нормализация текста,
+черновики, локальная приватность, autocomplete, генерация вариантов, предварительная фильтрация.</p>
+<p>Практичный подход: сначала измерить качество на eval-наборе, затем выбрать самую дешевую модель, которая стабильно
+проходит нужный порог.</p>
+</div>
+</details>
+<details>
+<summary>Как проектировать систему, если модели быстро устаревают?</summary>
+<div class="answer">
+<p>Нужно отделять бизнес-логику от конкретного model ID:</p>
+<ul>
+<li>хранить model ID в конфигурации;</li>
+<li>иметь provider adapter;</li>
+<li>описывать ожидаемый формат ответа через schema;</li>
+<li>держать eval-набор для ключевых сценариев;</li>
+<li>логировать версию модели, prompt и tool calls;</li>
+<li>делать canary или shadow-прогоны перед заменой модели;</li>
+<li>не завязывать продуктовый контракт на особенности одной модели.</li>
+</ul>
+<p>Модель - это зависимость, а не архитектура. Ее нужно обновлять так же дисциплинированно, как базу данных, framework или
+платежный провайдер.</p>
+</div>
+</details>
+<details>
+<summary>Что такое model routing?</summary>
+<div class="answer">
+<p>Model routing - это выбор модели под конкретный запрос. Например, простые задачи идут в дешевую fast-модель, сложные
+задачи - в сильную reasoning-модель, multimodal-задачи - в модель с vision/audio, а приватные локальные сценарии - в
+self-hosted модель.</p>
+<p>Routing можно делать по типу задачи, размеру контекста, уровню риска, требуемому latency, бюджету или результату
+предварительной классификации. Важно, чтобы routing был наблюдаемым: команда должна понимать, какая модель отвечала и
+почему.</p>
+</div>
+</details>
+<h3 id="ai-инструменты-разработки">AI-инструменты разработки</h3>
+<details>
+<summary>Чем отличаются ChatGPT, Claude, Codex и AI IDE?</summary>
+<div class="answer">
+<p>ChatGPT и Claude - универсальные AI-продукты для диалога, анализа, письма, кода и работы с файлами. Claude часто
+используют через claude.ai, Claude API и Claude Code. ChatGPT - через web, desktop, API и интеграции.</p>
+<p>Codex - coding agent OpenAI, который работает с проектом: читает файлы, правит код, запускает команды, делает ревью и
+может вести задачи в CLI, IDE, desktop app или web/cloud.</p>
+<p>AI IDE - редактор или IDE, где AI встроен рядом с кодом: Cursor, Windsurf, VS Code/JetBrains extensions и похожие
+инструменты. Их сильная сторона - быстрый inline-контекст и низкое трение при ежедневном редактировании.</p>
+</div>
+</details>
+<details>
+<summary>Что лучше: AI IDE, desktop app или терминальный агент?</summary>
+<div class="answer">
+<p>Зависит от режима работы:</p>
+<ul>
+<li><strong>AI IDE</strong> удобна для ежедневного редактирования, autocomplete, локальных объяснений и быстрых правок рядом с кодом.</li>
+<li><strong>Desktop app</strong> удобна для параллельных задач, планирования, обзора diff, worktrees, долгих тредов и более визуальной
+работы.</li>
+<li><strong>Терминальный агент</strong> удобен для точных операций в репозитории, запуска команд, scripting, CI-like задач и работы на
+сервере.</li>
+<li><strong>Web/cloud agent</strong> удобен, когда задачу можно делегировать в отдельную среду и получить PR.</li>
+</ul>
+<p>Лучший инструмент - тот, который дает нужный контекст, контроль и проверяемость для конкретной задачи.</p>
+</div>
+</details>
+<details>
+<summary>В каких задачах Codex сильнее обычного чат-бота?</summary>
+<div class="answer">
+<p>Codex сильнее там, где нужно действовать внутри репозитория, а не просто ответить текстом:</p>
+<ul>
+<li>найти связанный код по проекту;</li>
+<li>внести изменения в несколько файлов;</li>
+<li>запустить тесты и сборку;</li>
+<li>проанализировать diff;</li>
+<li>работать в отдельном worktree;</li>
+<li>сделать code review;</li>
+<li>использовать MCP, browser, GitHub или другие tools.</li>
+</ul>
+<p>Обычный чат-бот хорош для обсуждения идеи. Codex полезнее, когда итогом должен стать проверенный diff.</p>
+</div>
+</details>
+<details>
+<summary>Когда Claude Code или Claude Desktop могут быть удобнее Codex?</summary>
+<div class="answer">
+<p>Claude-инструменты могут быть удобнее, если команда уже использует Anthropic-модели, Claude-specific workflows, Claude
+Desktop MCP-конфигурацию или если конкретная Claude-модель лучше проходит внутренние evals.</p>
+<p>Выбор не должен быть религиозным. Для инженерной команды важнее сравнить инструменты на собственных задачах: качество
+diff, скорость, прозрачность действий, удобство ревью, интеграции, политика данных и стоимость.</p>
+</div>
+</details>
+<details>
+<summary>Как сравнивать AI IDE и агентный инструмент?</summary>
+<div class="answer">
+<p>AI IDE оптимизирована для “я пишу код, AI помогает рядом”. Агентный инструмент оптимизирован для “я ставлю задачу, AI
+сам проходит несколько шагов и приносит результат”.</p>
+<p>Сравнивать стоит по вопросам:</p>
+<ul>
+<li>может ли инструмент читать весь нужный контекст;</li>
+<li>умеет ли безопасно менять файлы;</li>
+<li>запускает ли проверки;</li>
+<li>показывает ли понятный diff;</li>
+<li>поддерживает ли MCP/tools;</li>
+<li>можно ли ограничить права;</li>
+<li>насколько легко человеку вмешаться в середине работы.</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Как выбрать AI-инструменты для команды?</summary>
+<div class="answer">
+<p>Командный выбор должен учитывать не только “какой AI умнее”, но и операционную безопасность:</p>
+<ul>
+<li>где хранятся данные и промпты;</li>
+<li>как настраиваются permissions;</li>
+<li>есть ли audit trail;</li>
+<li>поддерживаются ли repo rules и <code>AGENTS.md</code>;</li>
+<li>можно ли запускать проверки;</li>
+<li>как работает ревью AI-изменений;</li>
+<li>есть ли MCP/connectors к нужным системам;</li>
+<li>как обучать джунов и не превращать senior в единственный фильтр.</li>
+</ul>
+<p>Для маленькой команды достаточно одного IDE-инструмента и одного агентного инструмента. Для большой команды нужен
+стандарт: allowed tools, model policy, review policy, секреты, logging и evals.</p>
+</div>
+</details>
+<details>
+<summary>Какие риски есть у AI IDE и coding agents?</summary>
+<div class="answer">
+<p>Основные риски:</p>
+<ul>
+<li>утечка приватного кода или секретов;</li>
+<li>незаметные изменения в больших diff;</li>
+<li>запуск опасных команд;</li>
+<li>зависимость от одного vendor;</li>
+<li>накопление AI slop;</li>
+<li>падение навыков чтения и проектирования у команды;</li>
+<li>ложное чувство завершенности, когда демо работает, а система стала хрупкой.</li>
+</ul>
+<p>Снижают риск sandbox, approvals, маленькие PR, обязательные тесты, секрет-сканеры, code owners, evals и культура, где
+автор отвечает за AI-generated код так же, как за написанный вручную.</p>
+</div>
+</details>
+<details>
+<summary>Можно ли добавить AI-review для Pull Request или Merge Request?</summary>
+<div class="answer">
+<p>Да. AI-review можно добавить как дополнительный слой проверки, но не как замену human review. Его удобно использовать
+для раннего поиска очевидных проблем: больших diff, забытых тестов, небезопасных мест, неочевидных edge cases,
+несоответствия styleguide и подозрительных изменений в публичных контрактах.</p>
+<p>На GitHub есть несколько путей:</p>
+<ul>
+<li>включить GitHub Copilot Code Review и запросить Copilot как reviewer;</li>
+<li>настроить automatic code review в repository rules или branch protection, если функция доступна на плане;</li>
+<li>добавить GitHub Action, который вызывает AI через API, читает diff и оставляет PR comments;</li>
+<li>использовать Codex, Claude Code, CodeRabbit, Sourcegraph Cody или другой review bot.</li>
+</ul>
+<p>На GitLab варианты похожие:</p>
+<ul>
+<li>использовать GitLab Duo features, если они доступны в вашей версии и плане;</li>
+<li>добавить pipeline job в <code>.gitlab-ci.yml</code>, который получает MR diff через GitLab API и публикует discussion comments;</li>
+<li>подключить внешний review bot через webhook или scheduled job;</li>
+<li>запускать AI-review вручную как часть checklist перед merge.</li>
+</ul>
+<p>Ключевое правило: AI-review должен писать конкретные замечания по diff, а не общий текст “looks good”. И все найденные
+проблемы все равно проверяет автор или ревьюер.</p>
+</div>
+</details>
+<details>
+<summary>Как безопасно настроить AI-review в GitHub или GitLab?</summary>
+<div class="answer">
+<p>Минимальный безопасный процесс:</p>
+<ol>
+<li>Ограничить права token: read-only для кода и минимальные права на комментарии.</li>
+<li>Не отправлять секреты, <code>.env</code>, private keys и большие generated-файлы в модель.</li>
+<li>Передавать в модель diff, описание задачи и релевантные правила, а не весь репозиторий без необходимости.</li>
+<li>Просить модель возвращать замечания со ссылкой на файл, строку, риск и предлагаемую проверку.</li>
+<li>Фильтровать low-confidence comments, чтобы бот не шумел.</li>
+<li>Не разрешать AI автоматически мерджить PR.</li>
+<li>Логировать модель, prompt version и результат review для аудита.</li>
+</ol>
+<p>Для GitHub это обычно реализуется через Copilot Code Review или GitHub Action с <code>pull_request</code>/<code>pull_request_target</code>
+событием. Для GitLab - через job в merge request pipeline или отдельный сервис, который читает MR diff через API и
+создает discussion notes. В обоих случаях AI-review должен быть advisory check, а финальное решение остается за людьми и
+обычными CI-проверками.</p>
+</div>
+</details>
+<h3 id="продукт-и-командные-процессы">Продукт и командные процессы</h3>
+<details>
+<summary>Как AI помогает писать документацию и changelog?</summary>
+<div class="answer">
+<p>AI хорошо помогает превратить diff, issue или набор заметок в черновик документации: README, migration guide, release
+notes, changelog, описание PR или troubleshooting section.</p>
+<p>Но результат нужно проверять:</p>
+<ul>
+<li>нет ли обещаний, которых код не выполняет;</li>
+<li>совпадают ли названия API и flags;</li>
+<li>не пропущены ли breaking changes;</li>
+<li>понятны ли шаги миграции;</li>
+<li>нет ли устаревших команд.</li>
+</ul>
+<p>Документация - часть продукта. AI может ускорить черновик, но точность остается ответственностью команды.</p>
+</div>
+</details>
+<details>
+<summary>Какие навыки становятся важнее из-за AI?</summary>
+<div class="answer">
+<p>Важнее становятся навыки, которые помогают управлять неопределенностью:</p>
+<ul>
+<li>чтение и ревью кода;</li>
+<li>постановка задач;</li>
+<li>архитектурное мышление;</li>
+<li>тестирование;</li>
+<li>debugging;</li>
+<li>security awareness;</li>
+<li>коммуникация с продуктом и командой;</li>
+<li>умение проверять источники и гипотезы.</li>
+</ul>
+<p>Синтаксис по-прежнему нужен, но сам по себе он меньше отличает сильного инженера. Сильнее отличает способность понять,
+что именно нужно построить и как убедиться, что оно работает правильно.</p>
+</div>
+</details>
+<details>
+<summary>Как AI меняет роль product engineer?</summary>
+<div class="answer">
+<p>Product engineer получает больше скорости на прототипирование и проверку идей. AI помогает быстро сделать вариант UI,
+написать adapter, подготовить миграцию, собрать демо или сформулировать edge cases.</p>
+<p>Но роль не сводится к генерации кода. Наоборот, важнее становятся вопросы:</p>
+<ul>
+<li>какую пользовательскую проблему решаем;</li>
+<li>какой минимальный вариант даст сигнал;</li>
+<li>какие ограничения продукта и платформы важны;</li>
+<li>как измерить успех;</li>
+<li>какие trade-offs допустимы.</li>
+</ul>
+<p>AI ускоряет delivery, но discovery, приоритизация и ответственность за эффект остаются человеческой работой.</p>
+</div>
+</details>
+<details>
+<summary>Почему AI ускоряет прототипирование, но не заменяет discovery?</summary>
+<div class="answer">
+<p>AI может быстро собрать экран, API-заглушку или демо. Но discovery отвечает на другой вопрос: нужна ли эта возможность,
+кому она помогает, какую боль решает и как изменит поведение пользователя.</p>
+<p>Опасность в том, что быстрая генерация создает иллюзию прогресса. Команда видит работающий прототип и начинает
+достраивать его, хотя проблема могла быть неверно понята.</p>
+<p>Хорошее использование AI: быстрее проверять гипотезы, но не пропускать интервью, аналитику, ограничения бизнеса и
+обратную связь пользователей.</p>
+</div>
+</details>
+<details>
+<summary>Как проверять, что AI сделал пользовательскую ценность, а не просто код?</summary>
+<div class="answer">
+<p>Нужно сравнивать результат не с prompt, а с пользовательским сценарием. Полезные вопросы:</p>
+<ul>
+<li>какую задачу пользователь теперь может выполнить;</li>
+<li>стало ли быстрее, понятнее или надежнее;</li>
+<li>какие состояния видит пользователь при ошибке, загрузке и пустых данных;</li>
+<li>как это измерить;</li>
+<li>не ухудшился ли соседний сценарий;</li>
+<li>можно ли показать результат заказчику без объяснений “как оно внутри работает”.</li>
+</ul>
+<p>Код - средство. Если diff большой, но пользовательский outcome не изменился, AI просто произвел активность.</p>
+</div>
+</details>
+<details>
+<summary>Где AI полезен в работе с требованиями?</summary>
+<div class="answer">
+<p>AI полезен как собеседник для уточнения требований:</p>
+<ul>
+<li>разбить большую фичу на user stories;</li>
+<li>найти неоднозначные формулировки;</li>
+<li>предложить acceptance criteria;</li>
+<li>перечислить edge cases;</li>
+<li>подготовить вопросы к заказчику;</li>
+<li>сравнить несколько вариантов scope;</li>
+<li>превратить meeting notes в план.</li>
+</ul>
+<p>Но AI не знает настоящие приоритеты бизнеса. Финальное решение о scope, сроках и trade-offs принимает команда вместе с
+stakeholders.</p>
+</div>
+</details>
+<details>
+<summary>Как меняется code review, если код пишет AI?</summary>
+<div class="answer">
+<p>Review становится меньше проверкой “как автор написал код” и больше проверкой “поняла ли команда изменение”. Ревьюер
+должен смотреть не только стиль, но и намерение, границы, тесты, риски и поддержку.</p>
+<p>Для AI-generated кода полезно просить автора добавить:</p>
+<ul>
+<li>краткое описание задачи;</li>
+<li>что было сгенерировано AI;</li>
+<li>какие проверки запускались;</li>
+<li>какие trade-offs приняты;</li>
+<li>где reviewer должен смотреть особенно внимательно.</li>
+</ul>
+<p>Если PR нельзя объяснить без фразы “AI так сделал”, он не готов.</p>
+</div>
+</details>
+<details>
+<summary>Нужно ли помечать AI-generated PR?</summary>
+<div class="answer">
+<p>Зависит от политики команды. Полезно помечать не ради формальности, а чтобы reviewer понимал риск-профиль изменения.
+Например, можно добавить в PR template поле: “Использовался ли AI? Для чего? Какие проверки выполнены?”</p>
+<p>При этом пометка не снимает ответственность с автора. Код не становится менее обязательным к ревью только потому, что
+его написал AI. Скорее наоборот: reviewer должен внимательнее смотреть на архитектуру, edge cases и случайные изменения.</p>
+</div>
+</details>
+<details>
+<summary>Кто отвечает за баг в коде, который написал AI?</summary>
+<div class="answer">
+<p>Отвечает команда и конкретный автор изменения, как за любой другой код. AI не является участником on-call, не несет
+ответственность перед пользователем и не понимает бизнес-контекст полностью.</p>
+<p>Практически это значит:</p>
+<ul>
+<li>автор обязан понимать diff;</li>
+<li>reviewer обязан проверить риски;</li>
+<li>CI обязан ловить автоматизируемые ошибки;</li>
+<li>команда обязана улучшать процесс после инцидента.</li>
+</ul>
+<p>Фраза “это написал AI” может объяснить источник ошибки, но не является оправданием.</p>
+</div>
+</details>
+<details>
+<summary>Как договориться о team policy для AI?</summary>
+<div class="answer">
+<p>Team policy должна быть короткой и применимой:</p>
+<ul>
+<li>какие инструменты разрешены;</li>
+<li>какие данные нельзя отправлять;</li>
+<li>какие задачи можно делегировать AI;</li>
+<li>какие действия требуют approval;</li>
+<li>как помечать AI-assisted PR;</li>
+<li>какие проверки обязательны;</li>
+<li>кто отвечает за результат;</li>
+<li>как обучать junior и middle-разработчиков.</li>
+</ul>
+<p>Хорошая policy не запрещает AI из страха и не разрешает все из восторга. Она задает границы, внутри которых команда
+может работать быстро и безопасно.</p>
+</div>
+</details>
+<details>
+<summary>Как измерять пользу AI в команде без vanity metrics?</summary>
+<div class="answer">
+<p>Плохие метрики: количество prompt, строк кода, сгенерированных PR или “процент AI-кода”. Они легко растут, но плохо
+связаны с ценностью.</p>
+<p>Лучше смотреть:</p>
+<ul>
+<li>lead time задач;</li>
+<li>defect rate после merge;</li>
+<li>размер PR;</li>
+<li>время review;</li>
+<li>частоту rollback;</li>
+<li>developer satisfaction;</li>
+<li>скорость onboarding;</li>
+<li>долю задач, где AI помог найти тесты или edge cases.</li>
+</ul>
+<p>AI полезен, если команда быстрее поставляет качественные изменения и не накапливает скрытый долг.</p>
+</div>
+</details>
+<details>
+<summary>Какие навыки становятся менее ценными из-за AI?</summary>
+<div class="answer">
+<p>Меньше ценятся навыки, которые сводятся к механическому воспроизведению:</p>
+<ul>
+<li>помнить редкий синтаксис без понимания;</li>
+<li>писать boilerplate вручную;</li>
+<li>копировать типовые adapter-классы;</li>
+<li>механически переносить формат данных;</li>
+<li>делать простые CRUD-экраны без продуктового контекста.</li>
+</ul>
+<p>Но “менее ценные” не значит “ненужные”. Инженер все равно должен понимать результат, иначе он не сможет проверить,
+отладить и поддерживать AI-generated код.</p>
+</div>
+</details>
+<h3 id="обучение-и-карьера">Обучение и карьера</h3>
+<details>
+<summary>Как джуну учиться, если AI может написать код быстрее?</summary>
+<div class="answer">
+<p>Джуну важно не соревноваться с AI в скорости печати. Нужно использовать AI как тренажер, но сохранять личное понимание:</p>
+<ul>
+<li>сначала самому описать решение словами;</li>
+<li>попросить AI предложить вариант;</li>
+<li>сравнить с собственным планом;</li>
+<li>переписать ключевые части вручную;</li>
+<li>запустить тесты и объяснить, почему они проходят;</li>
+<li>разобрать ошибки и альтернативы.</li>
+</ul>
+<p>Цель обучения - не получить готовый diff, а научиться видеть причинно-следственные связи: почему этот код работает,
+почему он безопасен и как он сломается при изменении требований.</p>
+</div>
+</details>
+<details>
+<summary>Какие навыки джун должен развивать в эпоху AI?</summary>
+<div class="answer">
+<p>Базовые навыки стали еще важнее:</p>
+<ul>
+<li>читать чужой код;</li>
+<li>понимать JavaScript, TypeScript, HTML, CSS и HTTP;</li>
+<li>писать маленькие функции с понятными типами;</li>
+<li>отлаживать через воспроизведение проблемы;</li>
+<li>писать тесты;</li>
+<li>объяснять решение простыми словами;</li>
+<li>задавать уточняющие вопросы.</li>
+</ul>
+<p>AI может подсказать синтаксис, но без фундамента джун не отличит хорошее решение от случайно работающего.</p>
+</div>
+</details>
+<details>
+<summary>Почему у компаний может сломаться органический рост джунов?</summary>
+<div class="answer">
+<p>Раньше джуны росли через небольшие задачи, ручное написание кода, ошибки, ревью и постепенное усложнение контекста. Если
+эти задачи полностью забирает AI, у джуна исчезает безопасная зона практики.</p>
+<p>Проблема проявится позже: сениоры уйдут, а новых инженеров, которые прошли путь от простого к сложному и научились
+держать систему в голове, может не оказаться. Поэтому AI-процесс должен сохранять обучение как явную часть работы, а не
+как побочный эффект.</p>
+</div>
+</details>
+<details>
+<summary>Как команде обучать джунов рядом с AI?</summary>
+<div class="answer">
+<p>Нужно проектировать задачи так, чтобы AI помогал, но не заменял обучение:</p>
+<ul>
+<li>давать джуну маленькие ownership-зоны;</li>
+<li>просить сначала написать план без AI;</li>
+<li>требовать объяснение diff перед ревью;</li>
+<li>проводить парное ревью AI-ответов;</li>
+<li>оставлять задачи на чтение и рефакторинг существующего кода;</li>
+<li>оценивать не только скорость, но и качество рассуждения;</li>
+<li>разбирать инциденты и регрессии как учебный материал.</li>
+</ul>
+<p>Хорошая практика: “AI может написать черновик, но джун должен стать автором решения”.</p>
+</div>
+</details>
+<details>
+<summary>Как понять, что разработчик не просто промптит, а действительно растет?</summary>
+<div class="answer">
+<p>Рост виден не по количеству сгенерированного кода, а по качеству решений. Разработчик должен уметь объяснить проблему,
+предложить несколько вариантов, назвать trade-offs, сузить diff, написать проверку и защитить решение на ревью.</p>
+<p>Хорошие признаки:</p>
+<ul>
+<li>вопросы к требованиям становятся точнее;</li>
+<li>PR становятся меньше и понятнее;</li>
+<li>тесты покрывают реальные риски;</li>
+<li>разработчик замечает слабые места в AI-ответах;</li>
+<li>после обратной связи улучшается следующий подход, а не только текущий diff.</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Как senior-инженеру не стать узким горлышком в AI-процессе?</summary>
+<div class="answer">
+<p>Если каждый AI-generated PR требует глубокого ручного ревью только от senior-инженера, процесс не масштабируется. Senior
+должен не только проверять код, но и строить систему контроля качества:</p>
+<ul>
+<li>шаблоны задач и PR;</li>
+<li>правила для допустимого размера diff;</li>
+<li>обязательные проверки;</li>
+<li>примеры хороших AI-промптов;</li>
+<li>архитектурные decision records;</li>
+<li>обучение middle-разработчиков ревьюить AI-код;</li>
+<li>регулярный разбор типовых ошибок модели.</li>
+</ul>
+<p>Цель senior-инженера - выращивать способность команды принимать хорошие решения, а не быть единственным фильтром.</p>
+</div>
+</details>
+<details>
+<summary>Что спрашивать на интервью про AI-assisted development?</summary>
+<div class="answer">
+<p>Полезно проверять не владение конкретным инструментом, а зрелость инженерного процесса:</p>
+<ul>
+<li>Как вы проверяете код, который предложил AI?</li>
+<li>Какой AI-generated diff вы бы не приняли?</li>
+<li>Как вы объясните решение, если большую часть кода написала модель?</li>
+<li>Какие задачи нельзя отдавать AI без сильного контроля?</li>
+<li>Как вы обучаете менее опытных инженеров в AI-процессе?</li>
+<li>Как вы предотвращаете накопление technical debt от быстрых генераций?</li>
+</ul>
+<p>Сильный кандидат говорит не только про скорость, но и про ответственность, проверку, поддержку и обучение команды.</p>
+</div>
+</details></article></main></body></html>

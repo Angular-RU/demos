@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="description" content="Сетевые протоколы, HTTP, безопасность, аутентификация и авторизация"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Веб-протоколы и безопасность</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/interview/_astro/ClientRouter.astro_astro_type_script_index_0_lang.6Spq5I16.js"></script><link rel="stylesheet" href="/interview/_astro/Layout.Bau6QOxO.css"></head><body><main class="page"><article class="content"><aside class="sidebar-navigation" aria-label="Навигация: Веб-протоколы и безопасность"><nav class="sidebar-navigation__panel"><div class="sidebar-navigation__header"><a class="sidebar-navigation__home" href="/interview/" aria-label="На главную"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.75Z"></path></svg><span class="sidebar-navigation__home-label">Главная</span></a></div></nav></aside><script type="module">var e,t=(e,t)=>{let n=e.querySelector(`.sidebar-navigation__panel`),r=e.querySelector(`[data-navigation-toggle]`);if(!n||!r)return;let i=[...e.querySelectorAll(`[data-heading-link]`)],a=[...e.querySelectorAll(`[data-heading-marker]`)],o=i.flatMap(e=>{let t=e.dataset.headingLink,n=t?document.getElementById(t):null;return t&&n?[{slug:t,heading:n}]:[]}),s=0,c=e=>{n.toggleAttribute(`data-open`,e),r.setAttribute(`aria-expanded`,String(e))},l=e=>{for(let t of i)t.dataset.headingLink===e?t.setAttribute(`aria-current`,`location`):t.removeAttribute(`aria-current`);for(let t of a)t.toggleAttribute(`data-active`,t.dataset.headingMarker===e)},u=()=>Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(`--anchor-offset`))||0,d=()=>{let e=o[0]?.slug,t=u(),n=document.documentElement.scrollHeight-window.innerHeight-window.scrollY;if(window.scrollY>0&&n<=1)return o.at(-1)?.slug;for(let{slug:n,heading:r}of o){if(r.getBoundingClientRect().top>t+1)break;e=n}return e},f=()=>{s=0,l(d())},p=()=>{s||=requestAnimationFrame(f)};r.addEventListener(`click`,()=>{c(!n.hasAttribute(`data-open`))},{signal:t}),e.addEventListener(`click`,e=>{let t=e.target;if(!(t instanceof Element))return;let n=t.closest(`[data-heading-link]`);n&&(l(n.dataset.headingLink),c(!1))},{signal:t}),document.addEventListener(`click`,t=>{let n=t.target;n instanceof Node&&!e.contains(n)&&c(!1)},{signal:t}),window.addEventListener(`scroll`,p,{passive:!0,signal:t}),window.addEventListener(`resize`,p,{signal:t}),window.addEventListener(`hashchange`,p,{signal:t}),t.addEventListener(`abort`,()=>cancelAnimationFrame(s),{once:!0}),p()};document.addEventListener(`astro:page-load`,()=>{e?.abort(),e=new AbortController;for(let n of document.querySelectorAll(`.sidebar-navigation`))t(n,e.signal)});</script><h2 id="веб-протоколы-и-безопасность">Веб-протоколы и безопасность</h2>
+<details>
+<summary>Что такое протокол? Какие протоколы знаешь?</summary>
+<div class="answer">
+<ul>
+<li><strong>Протокол:</strong> Это <strong>набор правил и соглашений</strong>, которые определяют <strong>формат, последовательность и обработку
+сообщений</strong>, которыми обмениваются устройства или программы в сети или системе для успешной коммуникации. Протокол
+стандартизирует взаимодействие.</li>
+<li><strong>Аналогия:</strong> Язык и правила этикета для общения между людьми. Чтобы два человека поняли друг друга, они должны
+говорить на одном языке и следовать определенным правилам диалога.</li>
+<li><strong>Какие протоколы знаешь (примеры по уровням модели OSI/TCP/IP):</strong>
+<ul>
+<li><strong>Прикладной уровень (Application Layer):</strong>
+<ul>
+<li><strong>HTTP (HyperText Transfer Protocol):</strong> Основа веба, для передачи гипертекста (веб-страниц).</li>
+<li><strong>HTTPS (HTTP Secure):</strong> Безопасная версия HTTP с шифрованием (TLS/SSL).</li>
+<li><strong>FTP (File Transfer Protocol):</strong> Для передачи файлов.</li>
+<li><strong>SMTP (Simple Mail Transfer Protocol):</strong> Для отправки электронной почты.</li>
+<li><strong>POP3 (Post Office Protocol v3) / IMAP (Internet Message Access Protocol):</strong> Для получения электронной почты.</li>
+<li><strong>DNS (Domain Name System):</strong> Для преобразования доменных имен в IP-адреса.</li>
+<li><strong>SSH (Secure Shell):</strong> Для безопасного удаленного доступа к системам.</li>
+<li><strong>SOAP, WebSocket, gRPC</strong> (можно отнести сюда же, как протоколы прикладного уровня для специфичных задач).</li>
+</ul>
+</li>
+<li><strong>Транспортный уровень (Transport Layer):</strong>
+<ul>
+<li><strong>TCP (Transmission Control Protocol):</strong> Гарантированная доставка данных с установлением соединения, контролем
+ошибок и порядка пакетов.</li>
+<li><strong>UDP (User Datagram Protocol):</strong> Быстрая доставка данных без гарантий и установления соединения (для потокового
+видео, игр, DNS).</li>
+</ul>
+</li>
+<li><strong>Сетевой уровень (Internet/Network Layer):</strong>
+<ul>
+<li><strong>IP (Internet Protocol):</strong> Основной протокол для маршрутизации пакетов данных в сети Интернет. (IPv4, IPv6).</li>
+<li><strong>ICMP (Internet Control Message Protocol):</strong> Для передачи служебных сообщений и сообщений об ошибках
+(используется ping, traceroute).</li>
+</ul>
+</li>
+<li><strong>Канальный уровень (Data Link Layer):</strong>
+<ul>
+<li><strong>Ethernet, Wi-Fi:</strong> Протоколы для передачи данных в локальных сетях.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Чем отличается http от https?</summary>
+<div class="answer">
+<ul>
+<li><strong>HTTP (HyperText Transfer Protocol):</strong> Стандартный протокол для передачи данных (в основном веб-страниц) в интернете.
+Данные передаются <strong>в открытом, незашифрованном виде</strong>.</li>
+<li><strong>HTTPS (HyperText Transfer Protocol Secure):</strong> Это <strong>расширение протокола HTTP</strong>, которое добавляет <strong>шифрование</strong>
+передаваемых данных с помощью криптографических протоколов <strong>SSL (Secure Sockets Layer)</strong> или, что более современно,
+<strong>TLS (Transport Layer Security)</strong>.</li>
+<li><strong>Ключевые отличия:</strong>
+<ol>
+<li><strong>Безопасность:</strong> HTTPS <strong>шифрует</strong> весь трафик между клиентом (браузером) и сервером, обеспечивая
+<strong>конфиденциальность</strong> (данные не могут быть прочитаны посторонними) и <strong>целостность</strong> (данные не могут быть
+незаметно изменены при передаче). HTTP передает все в открытом виде.</li>
+<li><strong>Аутентификация сервера:</strong> HTTPS использует <strong>SSL/TLS сертификаты</strong> для проверки подлинности веб-сервера, к
+которому подключается клиент. Это защищает от атак типа “человек посередине” (man-in-the-middle). HTTP не
+предоставляет такой проверки.</li>
+<li><strong>Порт по умолчанию:</strong> HTTP использует порт <strong>80</strong>, HTTPS использует порт <strong>443</strong>.</li>
+<li><strong>URL:</strong> URL для HTTPS начинается с <code>https://</code>, для HTTP – с <code>http://</code>.</li>
+</ol>
+</li>
+<li><strong>Итог:</strong> HTTPS – это безопасная версия HTTP, необходимая для передачи любых конфиденциальных данных (логины, пароли,
+платежная информация) и стандарт де-факто для современных веб-сайтов.</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Что такое авторизация и аутентификация?</summary>
+<div class="answer">
+<p>Это два разных, но связанных процесса управления доступом:</p>
+<ol>
+<li>
+<p><strong>Аутентификация (Authentication):</strong></p>
+<ul>
+<li><strong>Процесс проверки подлинности пользователя или системы.</strong> Ответ на вопрос: <strong>“Кто ты?”</strong>.</li>
+<li>Система проверяет, является ли пользователь тем, за кого себя выдает.</li>
+<li><strong>Методы:</strong>
+<ul>
+<li>Что-то, что пользователь <strong>знает</strong> (пароль, PIN-код).</li>
+<li>Что-то, что пользователь <strong>имеет</strong> (физический ключ, токен, SMS-код, сертификат).</li>
+<li>Что-то, чем пользователь <strong>является</strong> (биометрия: отпечаток пальца, сканирование сетчатки).</li>
+<li>Многофакторная аутентификация (MFA) комбинирует несколько методов.</li>
+</ul>
+</li>
+<li><em>Результат:</em> Успешная аутентификация подтверждает личность пользователя.</li>
+</ul>
+</li>
+<li>
+<p><strong>Авторизация (Authorization):</strong></p>
+<ul>
+<li><strong>Процесс определения прав доступа аутентифицированного пользователя к определенным ресурсам или действиям.</strong>
+Ответ на вопрос: <strong>“Что тебе разрешено делать?”</strong>.</li>
+<li>Происходит <strong>после</strong> успешной аутентификации.</li>
+<li>Система проверяет, имеет ли подтвержденный пользователь необходимые <strong>разрешения (permissions)</strong> для выполнения
+запрошенной операции (чтение файла, просмотр страницы, удаление записи, вызов API).</li>
+<li><strong>Механизмы:</strong> Ролевые модели доступа (RBAC), списки контроля доступа (ACL), политики доступа.</li>
+<li><em>Результат:</em> Разрешение или запрет на выполнение действия.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Аналогия:</strong></p>
+<ul>
+<li><strong>Аутентификация:</strong> Предъявление паспорта на входе в здание (доказательство личности).</li>
+<li><strong>Авторизация:</strong> Проверка вашего пропуска охраной, чтобы определить, в какие кабинеты этого здания вам разрешен
+доступ.</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Что происходит когда ты переходишь по Url?</summary>
+<div class="answer">
+<p>Это сложный процесс, но вот основные шаги на высоком уровне:</p>
+<ol>
+<li><strong>Ввод URL и DNS-запрос:</strong>
+<ul>
+<li>Ты вводишь URL (например, <code>https://www.example.com</code>) в адресную строку браузера и нажимаешь Enter.</li>
+<li>Браузер сначала проверяет свой кэш (и кэш ОС), не знает ли он уже IP-адрес для <code>www.example.com</code>.</li>
+<li>Если нет, браузер отправляет <strong>DNS-запрос</strong> к DNS-резолверу (обычно предоставляется твоим интернет-провайдером или
+настроен вручную, как Google DNS).</li>
+<li>DNS-резолвер рекурсивно опрашивает другие DNS-серверы (корневые, TLD, авторитативные), чтобы найти <strong>IP-адрес</strong>,
+соответствующий доменному имени <code>www.example.com</code>.</li>
+<li>DNS-резолвер возвращает IP-адрес браузеру.</li>
+</ul>
+</li>
+<li><strong>Установление TCP-соединения:</strong>
+<ul>
+<li>Браузер инициирует установление <strong>TCP-соединения</strong> с сервером по полученному IP-адресу и порту (для HTTPS это порт
+443).</li>
+<li>Происходит процесс “тройного рукопожатия” (TCP three-way handshake: SYN -> SYN-ACK -> ACK) для установления
+надежного соединения.</li>
+</ul>
+</li>
+<li><strong>TLS/SSL Рукопожатие (для HTTPS):</strong>
+<ul>
+<li>Если используется HTTPS, поверх TCP-соединения происходит <strong>TLS/SSL рукопожатие</strong>.</li>
+<li>Браузер и сервер обмениваются сообщениями для согласования версии протокола, шифров, обмена ключами и проверки
+<strong>SSL-сертификата сервера</strong>.</li>
+<li>В результате устанавливается <strong>защищенный, зашифрованный канал</strong> связи.</li>
+</ul>
+</li>
+<li><strong>Отправка HTTP(S) Запроса:</strong>
+<ul>
+<li>Браузер формирует и отправляет <strong>HTTP(S) запрос</strong> на сервер через установленное соединение. Запрос включает:
+<ul>
+<li><strong>Стартовую строку:</strong> Метод (<code>GET</code>), путь (<code>/</code>), версия протокола (<code>HTTP/1.1</code> или <code>HTTP/2</code>).</li>
+<li><strong>Заголовки (Headers):</strong> <code>Host</code>, <code>User-Agent</code>, <code>Accept</code>, <code>Cookie</code> и др.</li>
+<li><strong>(Опционально) Тело запроса (Body):</strong> Для методов POST, PUT, PATCH.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Обработка запроса сервером:</strong>
+<ul>
+<li>Веб-сервер (например, Nginx, Apache) получает запрос.</li>
+<li>Он может передать запрос приложению (например, на PHP, Python, Java) для обработки.</li>
+<li>Приложение выполняет необходимую логику: обращается к базе данных, выполняет вычисления, генерирует HTML-страницу
+или другие данные.</li>
+</ul>
+</li>
+<li><strong>Отправка HTTP(S) Ответа:</strong>
+<ul>
+<li>Сервер формирует и отправляет <strong>HTTP(S) ответ</strong> обратно браузеру. Ответ включает:
+<ul>
+<li><strong>Статус-строку:</strong> Версия протокола, <strong>статус-код</strong> (<code>200 OK</code>, <code>404 Not Found</code>, <code>301 Redirect</code> и т.д.), фраза
+состояния.</li>
+<li><strong>Заголовки (Headers):</strong> <code>Content-Type</code>, <code>Content-Length</code>, <code>Set-Cookie</code>, <code>Cache-Control</code> и др.</li>
+<li><strong>Тело ответа (Body):</strong> Содержимое ресурса (HTML-код страницы, JSON, изображение и т.д.).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Отрисовка (Рендеринг) страницы браузером:</strong>
+<ul>
+<li>Браузер получает ответ.</li>
+<li>Он <strong>парсит HTML-код</strong>.</li>
+<li>Если в HTML есть ссылки на другие ресурсы (CSS, JavaScript, изображения), браузер <strong>повторяет шаги 2-6</strong> для
+загрузки каждого из этих ресурсов (часто параллельно, используя существующие или новые TCP/HTTPS соединения).</li>
+<li>Браузер <strong>строит DOM-дерево</strong> (Document Object Model) и CSSOM (CSS Object Model).</li>
+<li>Применяет стили CSS к элементам DOM.</li>
+<li><strong>Выполняет JavaScript-код</strong>, который может модифицировать DOM или запрашивать дополнительные данные (через AJAX).</li>
+<li><strong>Отображает (рендерит)</strong> готовую веб-страницу на экране.</li>
+</ul>
+</li>
+<li><strong>(Опционально) Закрытие соединения:</strong> Соединение может быть закрыто или оставлено открытым (keep-alive) для
+последующих запросов.</li>
+</ol>
+</div>
+</details>
+<details>
+<summary>Что такое шифрование данных?</summary>
+<div class="answer">
+<ul>
+<li><strong>Шифрование данных (Encryption):</strong> Это процесс <strong>преобразования исходных данных (открытого текста, plaintext)</strong> в
+<strong>нечитаемый формат (шифротекст, ciphertext)</strong> с использованием <strong>алгоритма шифрования</strong> и <strong>ключа</strong>.</li>
+<li><strong>Цель:</strong> Обеспечить <strong>конфиденциальность</strong> данных – сделать их непонятными для всех, кто не обладает соответствующим
+ключом для расшифровки (дешифрования).</li>
+<li><strong>Основные компоненты:</strong>
+<ul>
+<li><strong>Алгоритм шифрования:</strong> Математическая процедура для преобразования данных (например, AES, RSA, DES).</li>
+<li><strong>Ключ шифрования:</strong> Секретная информация (строка бит), используемая алгоритмом для шифрования данных.</li>
+<li><strong>Ключ дешифрования:</strong> Ключ, используемый для обратного преобразования шифротекста в открытый текст.</li>
+</ul>
+</li>
+<li><strong>Типы шифрования (по ключам):</strong>
+<ul>
+<li><strong>Симметричное шифрование:</strong> Используется <strong>один и тот же</strong> секретный ключ для шифрования и дешифрования (например,
+AES). Быстрое, но требует безопасной передачи ключа.</li>
+<li><strong>Асимметричное шифрование (с открытым ключом):</strong> Используется <strong>пара ключей:</strong> <strong>открытый ключ (public key)</strong> для
+шифрования и <strong>закрытый ключ (private key)</strong> для дешифрования. Открытый ключ можно свободно распространять, закрытый
+хранится в секрете. Используется для безопасного обмена ключами и цифровых подписей (например, RSA). Медленнее
+симметричного.</li>
+</ul>
+</li>
+<li><strong>Применение:</strong> Защита данных при передаче (HTTPS, VPN, SSH), защита хранимых данных (шифрование дисков, баз данных),
+цифровая подпись, безопасная аутентификация.</li>
+</ul>
+</div>
+</details></article></main></body></html>
